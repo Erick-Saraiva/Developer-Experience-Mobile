@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroUsuario">
+    tools:context=".CadastroEmpresa">
 
 
     <RelativeLayout
@@ -25,7 +25,7 @@
         <ImageView
             android:layout_width="330dp"
             android:layout_height="330dp"
-            android:background="@mipmap/img_cadastro"
+            android:background="@mipmap/img_cadastr_empresa"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_cadastro"
             android:layout_marginTop="120dp"
@@ -125,12 +125,12 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Data Nascimento"
+                    android:hint="CNPJ"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
                     android:textColor="@color/white"
-                    android:id="@+id/et_data_nascimento"
+                    android:id="@+id/et_cnpj"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
                     android:layout_below="@id/et_telefone"
@@ -214,6 +214,22 @@
                     android:layout_marginTop="18dp"
                     />
 
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="Número de funcionários"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/white"
+                    android:id="@+id/et_funcionarios"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+                    android:inputType="number"
+                    />
                 <Button
                     android:layout_width="370dp"
                     android:layout_height="52dp"
@@ -232,7 +248,4 @@
 
 
     </RelativeLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

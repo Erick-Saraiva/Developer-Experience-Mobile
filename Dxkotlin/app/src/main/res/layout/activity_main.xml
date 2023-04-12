@@ -103,6 +103,20 @@
             android:backgroundTint="#9747FF"
             android:textAllCaps="false"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro Empresa"
+            android:id="@+id/txt_cadastro_empresa"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/btn_cadastro"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            ></TextView>
+
         <!--            android:layout_width="wrap_content"-->
         <!--            android:textSize="35sp"-->
         <!--            android:layout_height="wrap_content"-->
