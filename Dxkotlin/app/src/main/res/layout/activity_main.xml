@@ -51,7 +51,7 @@
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_edittext"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/et_email"
             android:layout_marginTop="40dp"
             android:drawableLeft="@drawable/baseline_email_24"
@@ -82,7 +82,7 @@
             android:layout_height="52dp"
             android:textSize="16sp"
             android:text="Login"
-            android:onClick="Cadastrar"
+            android:onClick="validarAutenticacao"
             android:layout_below="@id/et_senha"
             android:id="@+id/btn_Login"
             android:layout_centerHorizontal="true"
@@ -103,6 +103,13 @@
             android:backgroundTint="#9747FF"
             android:textAllCaps="false"
             />
+
+        <TextView
+            android:id="@+id/tvAutenticacao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/img_login"
+            android:text="asasasasa"/>
 
         <TextView
             android:layout_width="wrap_content"
