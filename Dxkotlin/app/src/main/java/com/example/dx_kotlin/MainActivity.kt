@@ -2,6 +2,7 @@ package com.example.dx_kotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -14,8 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        tvAutenticacao = findViewById(R.id.tv_autenticacao)
     }
-    fun validarAutenticacao() {
+    fun validarAutenticacao(view: View) {
         val usuario = findViewById<EditText>(R.id.et_email).text.toString()
         val senha = findViewById<EditText>(R.id.et_senha).text.toString()
 
@@ -36,15 +38,17 @@ class MainActivity : AppCompatActivity() {
 
             // quando houver comunicação com a API
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+
                 if (response.isSuccessful) { // status 2xx (200, 201, 204 etc)
                     val usuarios = response.body()
-                    if (usuarios === true) {
+
+                    if (usuarios == true) {
                         tvAutenticacao.text = "Usuário autenticado!"
                     } else {
                         tvAutenticacao.text = "Login e/ou senha inválidos"
                     }
                 } else {
-                    tvAutenticacao.text = "Login e/ou senha inválidos"
+                    tvAutenticacao.text = "Login e/ou senha "
                 }
             }
 
@@ -58,5 +62,7 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+
 
 }
