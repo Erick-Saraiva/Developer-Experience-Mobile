@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
     }
     fun validarAutenticacao(view: View) {
         val tela2 = Intent(applicationContext, DadosCadastrais::class.java)
-        val usuario = findViewById<EditText>(R.id.et_email).text.toString()
-        val senha = findViewById<EditText>(R.id.et_senha).text.toString()
-        val apiUsuarios = Apis.getApiUsuario()
-        val chamadaPOST = apiUsuarios.postLogin(usuario, senha)
+        val usuario = findViewById<EditText>(R.id.et_email).text.toString();
+        val senha = findViewById<EditText>(R.id.et_senha).text.toString();
+        val apiUsuarios = Apis.getApiUsuario();
+        val chamadaPOST = apiUsuarios.postLogin(usuario, senha);
 
         chamadaPOST.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (usuarios == true) {
                         tvAutenticacao.text = "Usuário autenticado!"
+                        tela2.putExtra("usuario", usuario)
                         startActivity(tela2)
                     } else {
                         tvAutenticacao.text = "Login e/ou senha inválidos"

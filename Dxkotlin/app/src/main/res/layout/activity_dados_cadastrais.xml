@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alice Dias"
+            android:text="Nome Usuario"
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_nome"
@@ -48,6 +48,17 @@
             android:layout_below="@id/txt_nome"
             android:layout_marginLeft="20dp"
             ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="28sp"
+            android:textColor="#2D0C57"
+            android:id="@+id/txt_responseCpf"
+            android:layout_below="@id/txt_nome"
+            android:layout_toRightOf="@+id/txt_cpf"
+            android:text=""/>
 
         <TextView
             android:layout_width="wrap_content"

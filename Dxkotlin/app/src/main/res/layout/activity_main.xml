@@ -104,37 +104,19 @@
             android:textAllCaps="false"
             />
 
-        <TextView
-            android:id="@+id/tv_autenticacao"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@id/img_login"
-            android:text="asasasasa"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro Empresa"
-            android:id="@+id/txt_cadastro_empresa"
+            android:text=""
+            android:id="@+id/tv_autenticacao"
             android:textAlignment="textStart"
             android:textSize="15sp"
-            android:layout_marginTop="8dp"
-            android:layout_below="@id/btn_cadastro"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/et_senha"
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
-            ></TextView>
-
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Login"-->
-        <!--            android:onClick="Cadastrar"-->
-        <!--            />-->
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:id="@+id/tv_resultado"/>-->
+            />
 
     </RelativeLayout>
 

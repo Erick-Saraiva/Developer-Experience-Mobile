@@ -17,6 +17,6 @@ data class Usuario (
     val bairro:String,
     val cidade:String,
     val complemento:String,
-    val telefone:Int
+    val telefone:String
 )
 
