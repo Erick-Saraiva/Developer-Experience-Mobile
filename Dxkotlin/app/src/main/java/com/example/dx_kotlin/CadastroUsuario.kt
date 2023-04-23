@@ -12,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 
 class CadastroUsuario : AppCompatActivity() {
@@ -40,30 +38,43 @@ class CadastroUsuario : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.et_email).text.toString()
         val cpf = findViewById<EditText>(R.id.et_cpf).text.toString()
         val rua = findViewById<EditText>(R.id.et_rua).text.toString()
-        val numero = findViewById<EditText>(R.id.et_numero).text.toString().toInt()
+        val numero = findViewById<EditText>(R.id.et_numero).text.toString()
         val cep = findViewById<EditText>(R.id.et_cep).text.toString()
         val bairro = findViewById<EditText>(R.id.et_bairro).text.toString()
         val cidade = findViewById<EditText>(R.id.et_cidade).text.toString()
         val complemento = findViewById<EditText>(R.id.et_complemento).text.toString()
         val telefone = findViewById<EditText>(R.id.et_telefone).text.toString()
 
-        val data = LocalDate.parse(dataNascimento)
 
-        val chamadaPOST = apiUsuarios.cadastroUsuario(Usuario(id, usuario, senha, data, nome, email, cpf, rua, numero, cep, bairro, cidade, complemento, telefone))
+        val user = Usuario(id, usuario, senha, dataNascimento, nome, email, cpf, rua, numero, cep, bairro, cidade, complemento, telefone)
 
+//        val myPost = Usuario(id = 1,"Vinicius",
+//            "senha123","2002-10-12",
+//            "vini",
+//            "vinicius@gmail.com"
+//            ,"365.359.248-82",
+//            "teste",
+//            "245",
+//            "06411300","tests",
+//            "teste",
+//            "teste",
+//            "11 90223-7823")
+        val chamadaPOST = apiUsuarios.post(user)
         chamadaPOST.enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                println("antes do response")
+                println(call.request())
                 if (response.isSuccessful) {
                     val usuarios = response.body()
-
-                    if (usuarios?.id != 0) {
+                    println("dps do response")
+                    if (response.body() != null) {
                         tvAutenticacao.text = "Usuário cadastrado!"
                         startActivity(tela2)
                     } else {
                         tvAutenticacao.text = "Informações inválidas"
                     }
                 } else {
-                    tvAutenticacao.text = "Informações inválidas"
+                    tvAutenticacao.text = "Informações outro texto"
                 }
             }
 
