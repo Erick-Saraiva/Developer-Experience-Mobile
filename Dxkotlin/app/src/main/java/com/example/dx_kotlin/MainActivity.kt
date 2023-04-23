@@ -51,6 +51,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun telaCadastro(view: View) {
+        val telaCadastro = Intent(applicationContext, CadastroUsuario::class.java)
+        startActivity(telaCadastro)
+    }
+
 
 
 }
