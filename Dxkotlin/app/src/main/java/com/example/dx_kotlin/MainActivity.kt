@@ -1,5 +1,6 @@
 package com.example.dx_kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,32 +19,20 @@ class MainActivity : AppCompatActivity() {
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
     }
     fun validarAutenticacao(view: View) {
+        val tela2 = Intent(applicationContext, DadosCadastrais::class.java)
         val usuario = findViewById<EditText>(R.id.et_email).text.toString()
         val senha = findViewById<EditText>(R.id.et_senha).text.toString()
-
-        /*if (login == "lololo" && senha == "sesese") {
-            tvAutenticacao.text = "Bem vindo, usuário Loko!"
-        } else {
-            tvAutenticacao.text = "Login e/ou senha inválidos!"
-        }*/
-
-        // instância do cliente da API
         val apiUsuarios = Apis.getApiUsuario()
-
-        // instância do EndPoint (chamada) que busca p/ login e senha na API
         val chamadaPOST = apiUsuarios.postLogin(usuario, senha)
 
-        // iniciando uma chamada ASSÍNCRONA na API
-        chamadaPOST.enqueue(object : Callback<Boolean> { // do pacote retrofit2
-
-            // quando houver comunicação com a API
+        chamadaPOST.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
-
-                if (response.isSuccessful) { // status 2xx (200, 201, 204 etc)
+                if (response.isSuccessful) {
                     val usuarios = response.body()
 
                     if (usuarios == true) {
                         tvAutenticacao.text = "Usuário autenticado!"
+                        startActivity(tela2)
                     } else {
                         tvAutenticacao.text = "Login e/ou senha inválidos"
                     }
@@ -52,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            // quando não houver comunicação com a API
             override fun onFailure(call: Call<Boolean>, t: Throwable) {
                 Toast.makeText(baseContext, "Erro na API: ${t.message}",
                     Toast.LENGTH_SHORT).show()
