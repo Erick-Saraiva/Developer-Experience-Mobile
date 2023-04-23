@@ -26,7 +26,7 @@ class CadastroUsuario : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun validarAutenticacao(view: View) {
+    fun cadastrarUsuario(view: View) {
         val tela2 = Intent(applicationContext, MainActivity::class.java)
         val apiUsuarios = Apis.getApiUsuario()
         var contador = 1
