@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                         tvAutenticacao.text = "Login e/ou senha inválidos"
                     }
                 } else {
-                    tvAutenticacao.text = "Login e/ou senha "
+                    tvAutenticacao.text = "Login e/ou senha inválidos"
                 }
             }
 
