@@ -38,6 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_cadastro"
             android:layout_centerHorizontal="true"
+            android:windowSoftInputMode="adjustResize"
+
             >
 
             <LinearLayout
@@ -53,7 +55,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_usuario"
                     android:layout_marginTop="40dp"
 
@@ -69,7 +71,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_nome"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -84,9 +86,25 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_email"
                     android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_nome"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="CPF"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_cpf"
+                    android:drawablePadding="8dp"
+                    android:inputType="textPostalAddress"
                     android:padding="5dp"
                     android:layout_below="@id/et_nome"
                     android:layout_marginTop="18dp"
@@ -99,7 +117,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_senha"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -114,7 +132,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_telefone"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -122,21 +140,21 @@
                     android:layout_marginTop="18dp"
                     />
 
+
                 <EditText
+                    android:id="@+id/et_data_nascimento"
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Data Nascimento"
-                    android:textColorHint="@color/black"
-                    android:textSize="16sp"
-                    android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
-                    android:id="@+id/et_data_nascimento"
-                    android:drawablePadding="8dp"
-                    android:padding="5dp"
                     android:layout_below="@id/et_telefone"
                     android:layout_marginTop="18dp"
-                    />
-
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="8dp"
+                    android:hint="Data Nascimento"
+                    android:inputType="date"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:layout_width="370dp"
@@ -145,7 +163,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_rua"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -161,8 +179,23 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cep"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_rua"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="Bairro"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_bairro"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
                     android:layout_below="@id/et_rua"
@@ -176,7 +209,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cidade"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -191,7 +224,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_numero"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -206,7 +239,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_complemento"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -224,7 +257,15 @@
                     android:backgroundTint="#9747FF"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="false"
+                    android:onClick="cadastrarUsuario"
                     />
+
+                <TextView
+                    android:id="@+id/tv_autenticacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/img_login"
+                    android:text="asasasasa"/>
 
             </LinearLayout>
 
