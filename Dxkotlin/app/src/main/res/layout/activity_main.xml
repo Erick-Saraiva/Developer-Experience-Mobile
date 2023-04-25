@@ -85,7 +85,7 @@
             android:layout_height="52dp"
             android:textSize="16sp"
             android:text="Login"
-            android:onClick="Cadastrar"
+            android:onClick="validarAutenticacao"
             android:layout_below="@id/et_senha"
             android:id="@+id/btn_Login"
             android:layout_centerHorizontal="true"
@@ -96,18 +96,17 @@
             />
 
         <Button
+            android:id="@+id/btn_cadastro"
             android:layout_width="370dp"
             android:layout_height="52dp"
-            android:textSize="16sp"
-            android:text="Cadastre-se"
-            android:onClick="cadastroUsuario"
             android:layout_below="@id/btn_Login"
-            android:id="@+id/btn_cadastro"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
+            android:onClick="telaCadastro"
+            android:text="Cadastre-se"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            />
+            android:textSize="16sp" />
+
 
         <TextView
             android:layout_width="wrap_content"
