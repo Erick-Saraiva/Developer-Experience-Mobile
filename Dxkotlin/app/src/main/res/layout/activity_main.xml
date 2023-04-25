@@ -98,7 +98,7 @@
             android:layout_below="@id/btn_Login"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
-            android:onClick="telaCadastro"
+            android:onClick="telaCadastroEmpresa"
             android:text="Cadastre-se"
             android:textAllCaps="false"
             android:textSize="16sp" />

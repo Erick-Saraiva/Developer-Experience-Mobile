@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Apis {
 
-    var BASE_URL = "http://192.168.15.129:8080/"
+    var BASE_URL = "http://10.18.7.22:8080/"
 
 
     fun getApiUsuario(): Api{
@@ -14,5 +14,13 @@ object Apis {
             .baseUrl(BASE_URL)
             .build()
         return retrofit.create(Api::class.java)
+    }
+
+    fun getApiEmpresa(): ApiEmpresa{
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build()
+        return retrofit.create(ApiEmpresa::class.java)
     }
 }

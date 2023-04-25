@@ -57,6 +57,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(telaCadastro)
     }
 
-
+    fun telaCadastroEmpresa (view: View) {
+        val telaCadastroEmpresa = Intent(applicationContext, CadastroEmpresa::class.java)
+        startActivity(telaCadastroEmpresa)
+    }
 
 }
