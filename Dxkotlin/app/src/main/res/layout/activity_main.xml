@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,6 +32,7 @@
             android:layout_toRightOf="@id/img_logo"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+
             ></TextView>
 
         <ImageView
@@ -51,7 +54,7 @@
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_edittext"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/et_email"
             android:layout_marginTop="40dp"
             android:drawableLeft="@drawable/baseline_email_24"
@@ -89,6 +92,7 @@
             android:backgroundTint="#9747FF"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -96,12 +100,13 @@
             android:layout_height="52dp"
             android:textSize="16sp"
             android:text="Cadastre-se"
-            android:onClick="Cadastrar"
+            android:onClick="cadastroUsuario"
             android:layout_below="@id/btn_Login"
             android:id="@+id/btn_cadastro"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             />
 
         <TextView

@@ -1,0 +1,39 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/branco_navbar"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/iv_dados"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/icon_grid"
+        android:onClick="ivDados" />
+
+    <ImageView
+        android:id="@+id/iv_empresas"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/icon_monitor" />
+
+    <ImageView
+        android:id="@+id/iv_vagas"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/icon_user" />
+
+
+</RelativeLayout>
+
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".CadastroUsuario">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +26,7 @@
             android:background="@mipmap/img_cadastro"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_cadastro"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/img_cadastro"
             ></ImageView>
 
@@ -53,10 +51,9 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_usuario"
                     android:layout_marginTop="40dp"
-
                     android:drawablePadding="8dp"
                     android:padding="5dp"
 
@@ -69,7 +66,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_nome"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -84,7 +81,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_email"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -99,11 +96,12 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_senha"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
                     android:layout_below="@id/et_nome"
+                    android:inputType="textPassword"
                     android:layout_marginTop="18dp"
                     />
 
@@ -114,7 +112,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_telefone"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -129,7 +127,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_data_nascimento"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -145,7 +143,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_rua"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -161,7 +159,7 @@
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cep"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -224,6 +222,7 @@
                     android:backgroundTint="#9747FF"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="false"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>

@@ -7,172 +7,186 @@
     tools:context=".DadosCadastrais">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_tela"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="match_parent"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dados Cadastrais"
-            android:textSize="28sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_dados_cadastrais"
-            android:textColor="#2D0C57"
-            android:layout_centerHorizontal="true"
-            ></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alice Dias"
-            android:textSize="28sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_nome"
-            android:textColor="#2D0C57"
-            android:layout_below="@id/txt_dados_cadastrais"
-            android:layout_marginLeft="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CPF"
-            android:textSize="28sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_cpf"
-            android:textColor="#2D0C57"
-            android:layout_below="@id/txt_nome"
-            android:layout_marginLeft="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Endereço"
-            android:textSize="28sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_endereco"
-            android:textColor="#2D0C57"
-            android:layout_below="@id/txt_cpf"
-            android:layout_marginLeft="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MUDAR"
-            android:textSize="15sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_mudar_endereco"
-            android:textColor="#7203FF"
-            android:layout_alignBaseline="@+id/txt_endereco"
-            android:layout_marginLeft="330dp"
-            android:layout_marginRight="25dp"
-            ></TextView>
+    <!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
 
 
-        <TextView
-            android:id="@+id/img_icon_home"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_below="@id/txt_endereco"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="34dp"
-            android:background="@mipmap/home_icon"></TextView>
 
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:text="Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001"
-            android:textColor="#9586A8"
-            android:id="@+id/txt_onclick_mudar_endereco"
-            android:layout_below="@+id/txt_endereco"
-            android:layout_marginTop="36dp"
-            android:layout_alignLeft="@+id/img_icon_home"
-            android:layout_marginLeft="45dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Dados Cadastrais"-->
+<!--            android:textSize="28sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_dados_cadastrais"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            ></TextView>-->
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Alice Dias"-->
+<!--            android:textSize="28sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_nome"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_below="@id/txt_dados_cadastrais"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            ></TextView>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textSize="28sp"
-            android:layout_marginTop="65dp"
-            android:id="@+id/txt_telefone"
-            android:textColor="#2D0C57"
-            android:layout_below="@id/img_icon_home"
-            android:layout_marginLeft="20dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="CPF"-->
+<!--            android:textSize="28sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_cpf"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_below="@id/txt_nome"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            ></TextView>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MUDAR"
-            android:textSize="15sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_mudar_telefone"
-            android:textColor="#7203FF"
-            android:layout_alignBaseline="@+id/txt_telefone"
-            android:layout_marginLeft="330dp"
-            android:layout_marginRight="25dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Endereço"-->
+<!--            android:textSize="28sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_endereco"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_below="@id/txt_cpf"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            ></TextView>-->
 
-
-        <TextView
-            android:id="@+id/img_icon_telefone"
-            android:layout_below="@id/txt_telefone"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@mipmap/icon_telefone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp"
-            ></TextView>
-
-
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:text="11 - 4002 - 8922"
-            android:textColor="#9586A8"
-            android:id="@+id/txt_mudar_telefo"
-            android:layout_alignBaseline="@+id/img_icon_telefone"
-            android:layout_marginTop="36dp"
-            android:layout_alignLeft="@+id/img_icon_home"
-            android:layout_marginLeft="45dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MUDAR"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_mudar_endereco"-->
+<!--            android:textColor="#7203FF"-->
+<!--            android:layout_alignBaseline="@+id/txt_endereco"-->
+<!--            android:layout_marginLeft="330dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            ></TextView>-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Usuario"
-            android:textSize="28sp"
-            android:id="@+id/txt_usuario"
-            android:textColor="#2D0C57"
-            android:layout_below="@id/txt_mudar_telefo"
-            android:layout_marginLeft="20dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:id="@+id/img_icon_home"-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:layout_below="@id/txt_endereco"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="34dp"-->
+<!--            android:background="@mipmap/home_icon"></TextView>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:text="Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001"-->
+<!--            android:textColor="#9586A8"-->
+<!--            android:id="@+id/txt_onclick_mudar_endereco"-->
+<!--            android:layout_below="@+id/txt_endereco"-->
+<!--            android:layout_marginTop="36dp"-->
+<!--            android:layout_alignLeft="@+id/img_icon_home"-->
+<!--            android:layout_marginLeft="45dp"-->
+<!--            ></TextView>-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MUDAR"
-            android:textSize="15sp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/txt_mudar_usuario"
-            android:textColor="#7203FF"
-            android:layout_alignBaseline="@+id/txt_usuario"
-            android:layout_marginLeft="330dp"
-            android:layout_marginRight="25dp"
-            ></TextView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Telefone"-->
+<!--            android:textSize="28sp"-->
+<!--            android:layout_marginTop="65dp"-->
+<!--            android:id="@+id/txt_telefone"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_below="@id/img_icon_home"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            ></TextView>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MUDAR"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_mudar_telefone"-->
+<!--            android:textColor="#7203FF"-->
+<!--            android:layout_alignBaseline="@+id/txt_telefone"-->
+<!--            android:layout_marginLeft="330dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            ></TextView>-->
 
 
-    </RelativeLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/img_icon_telefone"-->
+<!--            android:layout_below="@id/txt_telefone"-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:background="@mipmap/icon_telefone"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            ></TextView>-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:text="11 - 4002 - 8922"-->
+<!--            android:textColor="#9586A8"-->
+<!--            android:id="@+id/txt_mudar_telefo"-->
+<!--            android:layout_alignBaseline="@+id/img_icon_telefone"-->
+<!--            android:layout_marginTop="36dp"-->
+<!--            android:layout_alignLeft="@+id/img_icon_home"-->
+<!--            android:layout_marginLeft="45dp"-->
+<!--            ></TextView>-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Usuario"-->
+<!--            android:textSize="28sp"-->
+<!--            android:id="@+id/txt_usuario"-->
+<!--            android:textColor="#2D0C57"-->
+<!--            android:layout_below="@id/txt_mudar_telefo"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            ></TextView>-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MUDAR"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:id="@+id/txt_mudar_usuario"-->
+<!--            android:textColor="#7203FF"-->
+<!--            android:layout_alignBaseline="@+id/txt_usuario"-->
+<!--            android:layout_marginLeft="330dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            ></TextView>-->
+
+
+
+<!--    </RelativeLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,10 +9,23 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dxkotlin"
+        android:theme="@style/FullscreenTheme"
+        android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
         <activity
-            android:name=".DadosCadastrais"
+            android:name=".LoadingDialog"
+            android:exported="false" />
+        <activity
+            android:name=".NavegacaoFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Vagas"
+            android:exported="false" />
+        <activity
+            android:name=".Empresas"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".CadastroEmpresa"
@@ -21,7 +34,7 @@
             android:name=".CadastroUsuario"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".DadosCadastrais"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
