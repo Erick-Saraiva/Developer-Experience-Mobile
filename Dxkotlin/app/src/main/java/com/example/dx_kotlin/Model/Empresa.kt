@@ -1,17 +1,19 @@
-package com.example.dx_kotlin
+package com.example.dx_kotlin.Model
 
 data class Empresa (
     val id:Int,
-    val nome:String,
     val usuario:String,
     val senha:String,
+    val dataNascimento: String,
+    val nome:String,
     val email:String,
     val cnpj: String,
-    val telefone:String,
-    val numFuncionarios:Int,
     val rua:String,
-    val numero:Int,
+    val numero:String,
     val cep:String,
     val bairro:String,
     val cidade:String,
+    val complemento:String,
+    val telefone:String,
+    val numFuncionario:String,
 )

@@ -11,15 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:background="@drawable/baseline_arrow_back_ios_new_24"
+            android:id="@+id/btn_back"
+            android:layout_alignBaseline="@+id/txt_cadastro"
+            ></Button>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro"
+            android:text="@string/cadastro_empresa"
             android:textSize="28sp"
-            android:layout_marginTop="18dp"
             android:id="@+id/txt_cadastro"
-            android:textColor="#049"
+            android:textColor="@color/black_ground"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+
             ></TextView>
 
         <ImageView
@@ -28,9 +37,12 @@
             android:background="@mipmap/img_cadastr_empresa"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_cadastro"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/img_cadastro"
             ></ImageView>
+
+
+
 
 
         <ScrollView
@@ -49,11 +61,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Usuario"
+                    android:hint="@string/usuario"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_usuario"
                     android:layout_marginTop="40dp"
 
@@ -65,11 +77,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Nome"
+                    android:hint="@string/nome"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_nome"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -78,13 +90,27 @@
                     />
 
                 <EditText
+                    android:id="@+id/et_senha"
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Email"
+                    android:layout_below="@id/et_nome"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/senha"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/email"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_email"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -95,26 +121,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Senha"
+                    android:hint="@string/telefone"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
-                    android:id="@+id/et_senha"
-                    android:drawablePadding="8dp"
-                    android:padding="5dp"
-                    android:layout_below="@id/et_nome"
-                    android:layout_marginTop="18dp"
-                    />
-
-                <EditText
-                    android:layout_width="370dp"
-                    android:layout_height="52dp"
-                    android:hint="Telefone"
-                    android:textColorHint="@color/black"
-                    android:textSize="16sp"
-                    android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_telefone"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -125,11 +136,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="CNPJ"
+                    android:hint="@string/cnpj"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cnpj"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -141,11 +152,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Rua"
+                    android:hint="@string/rua"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_rua"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -157,11 +168,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Cep"
+                    android:hint="@string/cep"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cep"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -172,11 +183,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Cidade"
+                    android:hint="@string/cidade"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_cidade"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -187,11 +198,11 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Número"
+                    android:hint="@string/numero"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_numero"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -202,12 +213,12 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Complemento"
+                    android:hint="@string/bairro"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
-                    android:id="@+id/et_complemento"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_bairro"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
                     android:layout_below="@id/et_cidade"
@@ -218,28 +229,78 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Número de funcionários"
+                    android:hint="@string/numero_de_funcionarios"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:id="@+id/et_funcionarios"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
                     android:layout_below="@id/et_cidade"
                     android:layout_marginTop="18dp"
-                    android:inputType="number"
+
                     />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/complemento"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_complemento"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/create_date"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_data_nascimento"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/tv_resultado"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@id/et_funcionarios"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"
+                    />
+
+
+
                 <Button
                     android:layout_width="370dp"
                     android:layout_height="52dp"
                     android:textSize="16sp"
-                    android:text="Registrar"
-                    android:layout_below="@id/et_complemento"
+                    android:text="@string/registrar"
+                    android:onClick="cadastrarEmpresa"
+                    android:layout_below="@id/et_bairro"
                     android:id="@+id/btn_Login"
                     android:backgroundTint="#9747FF"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="false"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>

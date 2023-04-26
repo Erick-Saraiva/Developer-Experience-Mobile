@@ -4,23 +4,32 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dx_kotlin.Model.Usuario
+import com.example.dx_kotlin.Utilities.Apis
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
 import java.util.*
 
 class CadastroUsuario : AppCompatActivity() {
     lateinit var tvAutenticacao: TextView
+    lateinit var btnBack: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_usuario)
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
+        btnBack = findViewById(R.id.btn_back)
+
+        btnBack.setOnClickListener(View.OnClickListener {
+            finish() // chama o método finish() para fechar a Activity
+        })
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

@@ -10,11 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dados Cadastrais"
+            android:text=""
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_dados_cadastrais"
@@ -25,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alice Dias"
+            android:text=""
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_nome"
@@ -37,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CPF"
+            android:text="@string/cpf"
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_cpf"
@@ -45,11 +44,22 @@
             android:layout_below="@id/txt_nome"
             android:layout_marginLeft="20dp"
             ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="28sp"
+            android:textColor="#2D0C57"
+            android:id="@+id/txt_responseCpf"
+            android:layout_below="@id/txt_nome"
+            android:layout_toRightOf="@+id/txt_cpf"
+            android:text=""/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Endereço"
+            android:text="@string/endereco"
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_endereco"
@@ -61,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MUDAR"
+            android:text="@string/mudar"
             android:textSize="15sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_mudar_endereco"
@@ -97,7 +107,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefone"
+            android:text="@string/telefone"
             android:textSize="28sp"
             android:layout_marginTop="65dp"
             android:id="@+id/txt_telefone"
@@ -109,7 +119,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MUDAR"
+            android:text="@string/mudar"
             android:textSize="15sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_mudar_telefone"
@@ -147,7 +157,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usuario"
+            android:text="@string/usuario"
             android:textSize="28sp"
             android:id="@+id/txt_usuario"
             android:textColor="#2D0C57"
@@ -159,7 +169,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MUDAR"
+            android:text="@string/mudar"
             android:textSize="15sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_mudar_usuario"
@@ -168,7 +178,6 @@
             android:layout_marginLeft="330dp"
             android:layout_marginRight="25dp"
             ></TextView>
-
 
 
     </RelativeLayout>

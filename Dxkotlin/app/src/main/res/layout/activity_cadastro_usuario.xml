@@ -10,15 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:background="@drawable/baseline_arrow_back_ios_new_24"
+            android:id="@+id/btn_back"
+            android:layout_alignBaseline="@+id/txt_cadastro"
+            ></Button>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro"
+            android:text="Cadastro "
             android:textSize="28sp"
-            android:layout_marginTop="18dp"
             android:id="@+id/txt_cadastro"
-            android:textColor="#049"
+            android:textColor="@color/black_ground"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
             ></TextView>
+
 
         <ImageView
             android:layout_width="330dp"
@@ -49,7 +59,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Usuario"
+                    android:hint="@string/usuario"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -64,7 +74,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Nome"
+                    android:hint="@string/nome"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -72,14 +82,13 @@
                     android:id="@+id/et_nome"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
-
                     android:layout_marginTop="18dp"
                     />
 
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Email"
+                    android:hint="@string/email"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -94,7 +103,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="CPF"
+                    android:hint="@string/cpf"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -110,7 +119,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Senha"
+                    android:hint="@string/senha"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -126,7 +135,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Telefone"
+                    android:hint="@string/telefone"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -143,7 +152,7 @@
                     android:id="@+id/et_data_nascimento"
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Data Nascimento"
+                    android:hint="@string/data_nascimento"
                     android:background="@drawable/rounded_edittext"
                     android:drawablePadding="8dp"
                     android:padding="5dp"
@@ -157,7 +166,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Rua"
+                    android:hint="@string/rua"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -169,11 +178,10 @@
                     android:layout_marginTop="18dp"
                     />
 
-
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Cep"
+                    android:hint="@string/cep"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -188,7 +196,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Bairro"
+                    android:hint="@string/bairro"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -203,7 +211,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Cidade"
+                    android:hint="@string/cidade"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -218,7 +226,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Número"
+                    android:hint="@string/numero"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -233,7 +241,7 @@
                 <EditText
                     android:layout_width="370dp"
                     android:layout_height="52dp"
-                    android:hint="Complemento"
+                    android:hint="@string/complemento"
                     android:textColorHint="@color/black"
                     android:textSize="16sp"
                     android:background="@drawable/rounded_edittext"
@@ -249,7 +257,7 @@
                     android:layout_width="370dp"
                     android:layout_height="52dp"
                     android:textSize="16sp"
-                    android:text="Registrar"
+                    android:text="@string/registrar"
                     android:layout_below="@id/et_complemento"
                     android:id="@+id/btn_Login"
                     android:backgroundTint="#9747FF"
@@ -263,7 +271,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_below="@id/img_login"
-                    android:text="asasasasa"/>
+                    android:text=""/>
 
             </LinearLayout>
 

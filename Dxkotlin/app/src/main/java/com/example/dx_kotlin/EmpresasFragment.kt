@@ -8,7 +8,6 @@ import android.view.ViewGroup
 
 class EmpresasFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

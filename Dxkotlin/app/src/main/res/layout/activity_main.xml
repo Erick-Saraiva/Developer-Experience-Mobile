@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Bem vindo(a) a Developer Experience"
+            android:text="@string/welcome_developer"
             android:id="@+id/txt_bem_vindo"
             android:textAlignment="textStart"
             android:textSize="25sp"
@@ -49,7 +49,7 @@
             android:layout_below="@id/img_login"
             android:layout_width="370dp"
             android:layout_height="52dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:textColorHint="@color/black"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
@@ -67,7 +67,8 @@
             android:layout_below="@id/et_email"
             android:layout_width="370dp"
             android:layout_height="57dp"
-            android:hint="Senha"
+            android:hint="@string/senha"
+            android:inputType="textPassword"
             android:textSize="16sp"
             android:textColorHint="@color/black"
             android:layout_centerHorizontal="true"
@@ -84,7 +85,7 @@
             android:layout_width="370dp"
             android:layout_height="52dp"
             android:textSize="16sp"
-            android:text="Login"
+            android:text="@string/login"
             android:onClick="validarAutenticacao"
             android:layout_below="@id/et_senha"
             android:id="@+id/btn_Login"
@@ -102,36 +103,40 @@
             android:layout_below="@id/btn_Login"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
-            android:onClick="telaCadastro"
-            android:text="Cadastre-se"
+            android:onClick="telaCadastroEmpresa"
+            android:text="@string/cadastre_se"
             android:textAllCaps="false"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastro Empresa"
+            android:text=""
+            android:id="@+id/tv_autenticacao"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/et_senha"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastrar_empresa"
             android:id="@+id/txt_cadastro_empresa"
             android:textAlignment="textStart"
             android:textSize="15sp"
-            android:layout_marginTop="8dp"
+
+            android:layout_marginBottom="8dp"
             android:layout_below="@id/btn_cadastro"
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
-            ></TextView>
-
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Login"-->
-        <!--            android:onClick="Cadastrar"-->
-        <!--            />-->
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:id="@+id/tv_resultado"/>-->
+            />
 
     </RelativeLayout>
 

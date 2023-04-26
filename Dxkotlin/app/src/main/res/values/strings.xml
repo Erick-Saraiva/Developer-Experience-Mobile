@@ -6,4 +6,39 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Textos da acitivity de cadastro empresa -->
+    <string name="cadastro_empresa">Cadastro empresa</string>
+    <string name="usuario">Usuario</string>
+    <string name="nome">Nome</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="telefone">Telefone</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="rua">Rua</string>
+    <string name="cep">Cep</string>
+    <string name="cidade">Cidade</string>
+    <string name="numero">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="numero_de_funcionarios">Número de funcionários</string>
+    <string name="complemento">Complemento</string>
+    <string name="create_date">Data de Criação</string>
+    <string name="registrar">Registrar</string>
+    <!-- TODO: Textos da acitivity de cadastro usuario -->
+    <string name="cpf">CPF</string>
+    <string name="data_nascimento">Data Nascimento</string>
+    <!-- TODO: Textos da acitivity de Login -->
+    <string name="welcome_developer">Bem vindo(a) a Developer Experience</string>
+    <string name="login">Login</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="cadastrar_empresa">Cadastrar empresa</string>
+
+    <!-- TODO: Textos da acitivity de Loading -->
+    <string name="aguarde">Aguarde...</string>
+
+    <!-- TODO: Textos da acitivity de Dados -->
+    <string name="endereco">Endereço</string>
+    <string name="mudar">MUDAR</string>
+
+
 </resources>

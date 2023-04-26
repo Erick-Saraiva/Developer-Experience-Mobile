@@ -11,7 +11,6 @@ class DadosFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -21,4 +20,6 @@ class DadosFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dados, container, false)
     }
+
+
 }

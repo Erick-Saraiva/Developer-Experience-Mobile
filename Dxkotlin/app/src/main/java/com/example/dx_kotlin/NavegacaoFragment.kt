@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.dx_kotlin.databinding.FragmentNavegacaoBinding
 
@@ -16,10 +17,15 @@ class NavegacaoFragment : Fragment(){
 
         binding.ivDados.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction!!.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_HOME")
+            transaction!!.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_DADOS")
             transaction.commit()
         }
         binding.ivEmpresas.setOnClickListener {
+//            var teste = binding.ivEmpresas.findViewById<ImageView>(R.id.iv_empresas)
+//
+//            teste.setOnClickListener {
+//                teste.setImageResource(R.drawable.icon_monitor_selected)
+//            }
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction!!.replace(R.id.fragment_tela, EmpresasFragment(), "FRAGMENT_EMPRESA")
             transaction.commit()

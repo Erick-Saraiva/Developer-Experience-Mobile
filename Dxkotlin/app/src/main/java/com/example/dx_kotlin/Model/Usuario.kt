@@ -1,4 +1,4 @@
-package com.example.dx_kotlin
+package com.example.dx_kotlin.Model
 
 import java.time.LocalDate
 import java.time.LocalDateTime

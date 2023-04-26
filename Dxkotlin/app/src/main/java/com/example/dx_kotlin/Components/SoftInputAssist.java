@@ -1,4 +1,4 @@
-package com.example.dx_kotlin;
+package com.example.dx_kotlin.Components;
 
 import android.app.Activity;
 import android.graphics.Rect;
