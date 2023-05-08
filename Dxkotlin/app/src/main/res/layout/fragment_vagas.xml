@@ -6,13 +6,111 @@
     tools:context=".VagasFragment">
 
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Vagas"
-        android:textSize="50sp"
-        android:id="@+id/tv_Home"
-        />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Vagas"
+            android:textSize="34sp"
+            android:padding="18dp"
+            android:id="@+id/tv_Home"
+            android:textColor="@color/black_ground"
+            android:textStyle="italic"
+
+            />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Digite aqui para pesquisar"
+            android:layout_below="@id/tv_Home"
+            android:background="@drawable/rounded_searchview"
+            android:elevation="4dp"
+            />
+        <ImageView
+            android:layout_width="234dp"
+            android:layout_height="234dp"
+            android:background="@mipmap/vagas_laptop_img"
+            android:layout_alignBaseline="@id/searchView"
+            android:layout_alignRight="@id/searchView"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_below="@id/searchView"
+            android:layout_marginTop="109dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:id="@+id/linear_btns"
+            >
+
+            <Button
+                android:id="@+id/btn_cadastro"
+                android:layout_width="139dp"
+                android:layout_height="54dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button"
+                android:drawableLeft="@drawable/baseline_check_24"
+                android:padding="16dp"
+                android:text="Mobile"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_vagas_selected"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="139dp"
+                android:layout_height="54dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button"
+                android:drawableLeft="@drawable/baseline_check_24"
+                android:padding="16dp"
+                android:text="Mobile"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_vagas_selected"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:windowSoftInputMode="adjustResize"
+            android:layout_below="@id/linear_btns"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/activity_card_vaga" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
 
 </FrameLayout>

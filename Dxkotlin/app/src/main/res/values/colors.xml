@@ -10,4 +10,16 @@
     <color name="black_ground">#1E1E1E</color>
     <color name="roxo_padrao">#9747FF</color>
     <color name="branco_navbar">#F8F8F8</color>
+
+
+    <color name="btn_vagas_selected">#9747FF</color>
+
+    <color name="vagas_text_color">#2D0C57</color>
+
+
+    <color name="btn_candidatar">#0BCE83</color>
+    <color name="btn_cancelar">#E21818</color>
+
+
+
 </resources>

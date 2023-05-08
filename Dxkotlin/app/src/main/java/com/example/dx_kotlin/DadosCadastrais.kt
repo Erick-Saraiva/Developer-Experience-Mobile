@@ -13,12 +13,11 @@ import retrofit2.Response
 
 class DadosCadastrais : AppCompatActivity() {
 
-    lateinit var txtNome: TextView
-    lateinit var txtCpf: TextView
-    lateinit var txtEndereco: TextView
-    lateinit var txtTelefone: TextView
-    lateinit var txtUsername: TextView
-
+    private lateinit var txtNome: TextView
+    private lateinit var txtCpf: TextView
+    private lateinit var txtEndereco: TextView
+    private lateinit var txtTelefone: TextView
+    private lateinit var txtUsername: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +28,11 @@ class DadosCadastrais : AppCompatActivity() {
         transaction.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_DADOS")
         transaction.commit()
         showLoading()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         sessaoUsuario();
     }
     fun showLoading() {

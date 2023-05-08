@@ -21,4 +21,11 @@ object Apis {
             .build()
         return retrofit.create(ApiEmpresa::class.java)
     }
+    fun getApiVagas(): ApiVaga {
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build()
+        return retrofit.create(ApiVaga::class.java)
+    }
 }

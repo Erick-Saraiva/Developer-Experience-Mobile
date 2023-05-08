@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewModel.CardVaga">
+
+
+    <RelativeLayout
+        android:id="@+id/card_vaga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/roxo_padrao"
+            android:id="@+id/img_card"
+            ></ImageView>
+
+        <ImageView
+            android:id="@+id/img_logo_empresa"
+            android:layout_width="170dp"
+            android:layout_height="158dp"
+            android:layout_margin="16dp"
+            android:background="@mipmap/empresa_logo1"></ImageView>
+
+
+        <TextView
+            android:id="@+id/txt_titulo_da_vaga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@id/img_logo_empresa"
+            android:text="Desenvolvedor iOS"
+            android:textColor="@color/vagas_text_color"
+            android:textSize="22dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_titulo_da_vaga"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/img_logo_empresa"
+            android:text="Descrição da vaga:"
+            android:textColor="@color/vagas_text_color"
+            android:textSize="16dp"
+            android:id="@+id/txt_descricao_vaga"
+            ></TextView>
+
+        <Button
+            android:id="@+id/btn_candidatar_se"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Candidatar-se"
+            android:background="@drawable/rounded_edittext"
+            android:layout_toRightOf="@id/img_logo_empresa"
+            android:layout_below="@id/txt_descricao_vaga"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="24dp"
+            android:padding="8dp"
+            android:textSize="14dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/btn_candidatar"
+            android:textStyle="bold"
+            ></Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@drawable/rounded_edittext"
+            android:layout_below="@id/txt_descricao_vaga"
+            android:layout_toRightOf="@id/btn_candidatar_se"
+            android:layout_marginTop="45dp"
+            android:padding="8dp"
+            android:textSize="14dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/btn_cancelar"
+            android:textStyle="bold"
+            android:layout_marginLeft="24dp"
+            ></Button>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

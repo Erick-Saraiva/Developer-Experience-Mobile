@@ -9,7 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,9 +41,10 @@
             android:textSize="28sp"
             android:layout_marginTop="18dp"
             android:id="@+id/txt_cpf"
-            android:textColor="#2D0C57"
+            android:textColor="@color/black"
             android:layout_below="@id/txt_nome"
             android:layout_marginLeft="20dp"
+
             ></TextView>
         <TextView
             android:layout_width="wrap_content"
@@ -77,8 +79,8 @@
             android:id="@+id/txt_mudar_endereco"
             android:textColor="#7203FF"
             android:layout_alignBaseline="@+id/txt_endereco"
-            android:layout_marginLeft="330dp"
             android:layout_marginRight="25dp"
+            android:layout_alignParentEnd="true"
             ></TextView>
 
 
@@ -125,7 +127,7 @@
             android:id="@+id/txt_mudar_telefone"
             android:textColor="#7203FF"
             android:layout_alignBaseline="@+id/txt_telefone"
-            android:layout_marginLeft="330dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
             ></TextView>
 
@@ -175,7 +177,7 @@
             android:id="@+id/txt_mudar_usuario"
             android:textColor="#7203FF"
             android:layout_alignBaseline="@+id/txt_usuario"
-            android:layout_marginLeft="330dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginRight="25dp"
             ></TextView>
 
