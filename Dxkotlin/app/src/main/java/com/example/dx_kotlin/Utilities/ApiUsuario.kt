@@ -14,7 +14,7 @@ interface ApiUsuario {
     fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Boolean>
 
     @GET("usuarios/sessao/{usuario}")
-    fun getUsuarioSession(@Path("usuario")usuario: String?) : Call<Usuario>
+    fun getUsuarioSession(@Path("usuario") usuario: String?) : Call<Usuario>
 
     @POST("usuarios/")
     fun post(@Body usuario: Usuario) : Call<Usuario>

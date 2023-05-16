@@ -23,6 +23,19 @@
 
             />
 
+        <Button
+            android:id="@+id/btn_publique_aqui"
+            android:layout_width="156dp"
+            android:layout_height="54dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_button"
+            android:padding="16dp"
+            android:text="Publique aqui"
+            android:textAllCaps="false"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/btn_vagas_selected"
+            android:textSize="16sp" />
+
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
@@ -39,6 +52,7 @@
             android:background="@mipmap/vagas_laptop_img"
             android:layout_alignBaseline="@id/searchView"
             android:layout_alignRight="@id/searchView"
+            android:id="@+id/btn_publicar_vaga"
             ></ImageView>
 
         <LinearLayout
@@ -80,34 +94,14 @@
 
         </LinearLayout>
 
-
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vagas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:windowSoftInputMode="adjustResize"
             android:layout_below="@id/linear_btns"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-                
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <include layout="@layout/activity_card_vaga" />
-
-                </RelativeLayout>
+            />
 
 
-            </LinearLayout>
-
-
-        </ScrollView>
 
     </RelativeLayout>
 

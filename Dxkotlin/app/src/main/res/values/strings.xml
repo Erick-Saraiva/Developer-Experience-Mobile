@@ -9,7 +9,7 @@
 
     <!-- TODO: Textos da acitivity de cadastro empresa -->
     <string name="cadastro_empresa">Cadastro empresa</string>
-    <string name="usuario">Usuario</string>
+    <string name="usuario">Usuário</string>
     <string name="nome">Nome</string>
     <string name="senha">Senha</string>
     <string name="email">Email</string>
@@ -25,7 +25,7 @@
     <string name="create_date">Data de Criação</string>
     <string name="registrar">Registrar</string>
     <!-- TODO: Textos da acitivity de cadastro usuario -->
-    <string name="cpf">CPF</string>
+    <string name="cpf">CPF: </string>
     <string name="data_nascimento">Data Nascimento</string>
     <!-- TODO: Textos da acitivity de Login -->
     <string name="welcome_developer">Bem vindo(a) a Developer Experience</string>

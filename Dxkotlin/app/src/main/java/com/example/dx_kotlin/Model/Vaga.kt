@@ -6,5 +6,6 @@ data class Vaga(
     val senioridade:String,
     val titulo:String,
     val tecnologia:String,
-    val tempEstimado:Int
-)
+    val tempEstimado:Int,
+    val urlImagem:String
+) : java.io.Serializable
