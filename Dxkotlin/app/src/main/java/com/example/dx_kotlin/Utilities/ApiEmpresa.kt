@@ -13,7 +13,7 @@ interface ApiEmpresa {
     fun post(@Body empresa: Empresa) : Call<Empresa>
 
     @POST("empresas/login/{usuario}/{senha}")
-    fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Boolean>
+    fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Empresa>
 
     @GET("empresas/sessao/{usuario}")
     fun getEmpresaSession(@Path("usuario") usuario: String?) : Call<Empresa>

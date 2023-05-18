@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class CadastroUsuario : AppCompatActivity() {
+class   CadastroUsuario : AppCompatActivity() {
     lateinit var tvAutenticacao: TextView
     lateinit var btnBack: Button
 

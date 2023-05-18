@@ -25,11 +25,11 @@ class VagasFragment : Fragment() {
 
     private val listaVagas = mutableListOf<Vaga>()
 
-
     fun carregarListaDeVagas() {
         listaVagas.add(Vaga(1, 100.0, "SR", "vaga loka", "c#", 2, "https://www.sptech.school/assets/images/logos/sptech_logo.png"))
         listaVagas.add(Vaga(11, 15450.0, "JR", "vaga rferfref", "JS", 2, "http://pudim.com.br/pudim.jpg"))
         listaVagas.add(Vaga(122, 6500.0, "PL", "va btr  tga l oka", "Cobol", 2, "https://www.sptech.school/assets/images/logos/parceiras/Accenture.png"))
+        listaVagas.add(Vaga(122, 6500.0, "PL", "teste123  tga l oka", "Cobol", 2, "https://www.sptech.school/assets/images/logos/parceiras/Accenture.png"))
         vagaAdapter.notifyDataSetChanged()
     }
 
@@ -48,9 +48,9 @@ class VagasFragment : Fragment() {
         carregarListaDeVagas()
 
         // recuperar a informacao do usuario da shared preferences
-        val isEmpresa = false
+       // val isEmpresa = false
 
-        view.findViewById<Button>(R.id.btn_publicar_vaga).visibility = if (isEmpresa) View.VISIBLE else View.GONE
+       // view.findViewById<Button>(R.id.btn_publicar_vaga).visibility = if (isEmpresa) View.VISIBLE else View.GONE
         // se ficar estranho com GONE, usar INVISIBLE
     }
 
