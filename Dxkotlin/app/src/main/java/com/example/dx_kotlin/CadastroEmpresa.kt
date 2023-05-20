@@ -19,7 +19,6 @@ class CadastroEmpresa : AppCompatActivity() {
         setContentView(R.layout.activity_cadastro_empresa)
         tvResultado = findViewById(R.id.tv_resultado)
         btnBack = findViewById(R.id.btn_back)
-
         btnBack.setOnClickListener(View.OnClickListener {
             finish() // chama o método finish() para fechar a Activity
         })

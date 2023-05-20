@@ -55,9 +55,8 @@ class MainActivity : AppCompatActivity() {
         val callbackUsuario = object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 if (response.isSuccessful) {
-                    val isAuthenticated = response.body() ?: false
 
-                    if (isAuthenticated == true) {
+                    if (response.body() != null) {
                         tvAutenticacao.text = "Usuário autenticado!"
                         tela2.putExtra("usuario", usuario)
                         sharedPref.edit().putString("usuario", usuario).apply()
