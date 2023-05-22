@@ -16,4 +16,5 @@ data class Empresa (
     val complemento:String,
     val telefone:String,
     val numFuncionario:String,
+    var isEmpresa: Boolean,
 )

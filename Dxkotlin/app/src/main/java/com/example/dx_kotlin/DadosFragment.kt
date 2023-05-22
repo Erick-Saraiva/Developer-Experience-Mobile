@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.dx_kotlin.Model.Empresa
 import com.example.dx_kotlin.Model.Usuario
 import com.example.dx_kotlin.Utilities.Apis
 import com.example.dx_kotlin.databinding.FragmentDadosBinding
-import com.example.dx_kotlin.databinding.FragmentNavegacaoBinding
 import retrofit2.Call
 import retrofit2.Response
 
@@ -28,12 +28,10 @@ class DadosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         binding = FragmentDadosBinding.inflate(inflater)
         return binding.root
     }
-
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -69,6 +67,33 @@ class DadosFragment : Fragment() {
             }
         })
 
+        val empresa = sharedPref?.getString("usuario", null)
+        val apiEmpresa = Apis.getApiEmpresa();
+        val chamadaGetSessaoEmpresa = apiEmpresa.getEmpresaSession(empresa)
+        chamadaGetSessaoEmpresa.enqueue(object :  retrofit2.Callback<Empresa> {
+            override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
+                if (response.isSuccessful) {
+                    val empresa = response.body()
+                    if (empresa != null) {
+                        empresa.isEmpresa = true
+                        //var isEmpresa = sharedPref?.edit()?.putBoolean("isEmpresa",true)?.apply()
+                       // var cpnj = sharedPref?.edit()?.putString("cnpj",usuarios.cnpj)?.apply()
+
+//                        binding.txtNome.text = usuarios.nome
+//                        binding.txtCpf.append(usuarios.cpf)
+//                        binding.txtOnclickMudarEndereco.text = "${usuarios.rua}, ${usuarios.bairro} - ${usuarios.numero} "
+//                        binding.txtMudarTelefo.text = usuarios.telefone
+//                        binding.txtNomeAtual.text = usuarios.usuario
+                    }
+                } else {
+
+                }
+            }
+
+            override fun onFailure(call: Call<Empresa>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
 
     }
 }

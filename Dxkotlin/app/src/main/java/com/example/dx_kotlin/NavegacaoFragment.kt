@@ -14,7 +14,6 @@ class NavegacaoFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.ivDados.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction!!.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_DADOS")

@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cee8ced-dcc1-4feb-8a21-958f34b23bb6" name="Changes" comment="" />
+    <list default="true" id="4cee8ced-dcc1-4feb-8a21-958f34b23bb6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Adapter/VagaAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Fragments/CardVagaFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/drawable-200dpi/icon_user_black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/drawable-hdpi/icon_user_black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/fragment_card_vaga.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/mipmap-mdpi/icon_user_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/mipmap-xhdpi/icon_user_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/mipmap-xxhdpi/icon_user_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/mipmap-xxxhdpi/icon_user_new.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/DadosCadastrais.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/DadosCadastrais.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/DadosFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/DadosFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Utilities/ApiEmpresa.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Utilities/ApiEmpresa.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Utilities/ApiUsuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/Utilities/ApiUsuario.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/VagasFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/VagasFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/java/com/example/dx_kotlin/ViewModel/CardVaga.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/activity_card_vaga.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/fragment_dados.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/fragment_dados.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/fragment_vagas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/layout/fragment_vagas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dxkotlin/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Dxkotlin/settings.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +43,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Oq8jnIKPPJqcChtmrQeAE8Bi9r" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/Raul/Desktop/dxdxdx/dx-kotlin",
+    "last_opened_file_path": "C:/Users/Raul/Desktop/dxkotlin/dx-kotlin/Dxkotlin",
     "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
 }]]></component>

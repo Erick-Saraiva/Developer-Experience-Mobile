@@ -1,5 +1,6 @@
 package com.example.dx_kotlin.Adapter
 
+import android.annotation.SuppressLint
 import com.example.dx_kotlin.R
 
 import android.content.Context
@@ -11,9 +12,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dx_kotlin.Model.Vaga
 import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class VagaAdapter(val lista: MutableList<Vaga>,
-                  val context: Context)
+class VagaAdapter(
+    val lista: List<Vaga>,
+    val context: Context)
     : RecyclerView.Adapter<VagaAdapter.FilmeViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -31,12 +36,12 @@ class VagaAdapter(val lista: MutableList<Vaga>,
         holder.tituloVaga.text = vaga.titulo
         holder.descricaoVaga.text = vaga.tecnologia
         Picasso.with(context).load(vaga.urlImagem).into(holder.logo)
-
     }
 
     override fun getItemCount(): Int {
         return lista.size
     }
+
 
     class FilmeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tituloVaga = itemView.findViewById<TextView>(R.id.txt_titulo_da_vaga)

@@ -17,4 +17,5 @@ interface ApiEmpresa {
 
     @GET("empresas/sessao/{usuario}")
     fun getEmpresaSession(@Path("usuario") usuario: String?) : Call<Empresa>
+
 }

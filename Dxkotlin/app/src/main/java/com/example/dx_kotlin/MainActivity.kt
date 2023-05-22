@@ -1,11 +1,17 @@
 package com.example.dx_kotlin
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -29,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
         val txtCadastroEmpresa = findViewById<TextView>(R.id.txt_cadastro_empresa)
 
-
         txtCadastroEmpresa.setOnClickListener {
             telaCadastroEmpresa()
         }
@@ -37,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             cadastroUsuario()
         }
     }
+
+
 
     fun cadastroUsuario() {
         val cadastroUsuario = Intent(this, CadastroUsuario::class.java)
@@ -55,9 +62,8 @@ class MainActivity : AppCompatActivity() {
         val callbackUsuario = object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 if (response.isSuccessful) {
-                    val isAuthenticated = response.body() ?: false
 
-                    if (isAuthenticated == true) {
+                    if (response.body() != null) {
                         tvAutenticacao.text = "Usuário autenticado!"
                         tela2.putExtra("usuario", usuario)
                         sharedPref.edit().putString("usuario", usuario).apply()
@@ -80,9 +86,9 @@ class MainActivity : AppCompatActivity() {
         val callbackEmpresa = object : Callback<Empresa> {
             override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
                 if (response.isSuccessful) {
-                    val isAuthenticated = response.body() ?: false
 
-                    if (isAuthenticated == true) {
+
+                    if (response.body() != null) {
                         tvAutenticacao.text = "Usuário autenticado!"
                         tela2.putExtra("usuario", usuario)
                         sharedPref.edit().putString("usuario", usuario).apply()

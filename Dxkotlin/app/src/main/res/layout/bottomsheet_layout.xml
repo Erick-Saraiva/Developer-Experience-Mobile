@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/txt_titulo_vaga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+
+            ></TextView>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Título"
+                android:textColorHint="@color/black"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_edittext"
+                android:textColor="@color/black"
+                android:id="@+id/et_titulo"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="8dp"
+                android:padding="5dp"
+                />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/txt_nome"
+
+            ></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="Vaga desenvolvedor Kotlin"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:textColor="@color/black"
+            android:id="@+id/et_descricao_vaga"
+            android:drawablePadding="8dp"
+            android:padding="5dp"
+            android:layout_marginTop="8dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Linguagem"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/txt_email"
+            ></TextView>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="Kotlin"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:textColor="@color/black"
+            android:id="@+id/et_email"
+            android:drawablePadding="8dp"
+            android:padding="5dp"
+            android:layout_marginTop="8dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salario"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/txt_cpf"
+
+            ></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="R$4.000"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:textColor="@color/black"
+            android:id="@+id/et_salario"
+            android:drawablePadding="8dp"
+            android:inputType="textPostalAddress"
+            android:padding="5dp"
+            android:layout_below="@id/et_nome"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tempo estimado"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/txt_senha"
+            ></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="6 meses"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_edittext"
+            android:textColor="@color/black"
+            android:id="@+id/et_tempo_estimado"
+            android:drawablePadding="8dp"
+            android:padding="5dp"
+            android:layout_below="@id/et_nome"
+            android:inputType="textPassword"
+            android:layout_marginTop="8dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senioridade"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/txt_senioridade"
+            ></TextView>
+
+        <EditText
+            android:id="@+id/et_senioridade"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_below="@id/et_senha"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawablePadding="8dp"
+            android:hint="Junior"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="370dp"
+            android:layout_height="52dp"
+            android:textSize="16sp"
+            android:text="@string/registrar"
+            android:layout_below="@id/et_senioridade"
+            android:id="@+id/btn_Login"
+            android:backgroundTint="#9747FF"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:onClick="cadastrarUsuario"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_autenticacao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/img_login"
+            android:text=""/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -16,12 +16,6 @@ import retrofit2.Response
 
 class DadosCadastrais : AppCompatActivity() {
 
-    private lateinit var txtNome: TextView
-    private lateinit var txtCpf: TextView
-    private lateinit var txtEndereco: TextView
-    private lateinit var txtTelefone: TextView
-    private lateinit var txtUsername: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dados_cadastrais)
