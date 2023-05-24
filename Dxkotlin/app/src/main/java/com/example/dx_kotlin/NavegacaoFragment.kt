@@ -14,26 +14,39 @@ class NavegacaoFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.ivDados.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction!!.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_DADOS")
-            transaction.commit()
+            transaction?.replace(R.id.fragment_tela, DadosFragment(), "FRAGMENT_DADOS")
+            transaction?.commit()
+
+            resetImageViews()
+            binding.ivDados.setBackgroundResource(R.drawable.icon_user)
         }
+
         binding.ivEmpresas.setOnClickListener {
-//            var teste = binding.ivEmpresas.findViewById<ImageView>(R.id.iv_empresas)
-//
-//            teste.setOnClickListener {
-//                teste.setImageResource(R.drawable.icon_monitor_selected)
-//            }
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction!!.replace(R.id.fragment_tela, EmpresasFragment(), "FRAGMENT_EMPRESA")
-            transaction.commit()
+            transaction?.replace(R.id.fragment_tela, EmpresasFragment(), "FRAGMENT_EMPRESA")
+            transaction?.commit()
+
+            resetImageViews()
+            binding.ivEmpresas.setBackgroundResource(R.drawable.icon_empresa_selecionado)
         }
+
         binding.ivVagas.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction!!.replace(R.id.fragment_tela, VagasFragment(), "FRAGMENT_VAGAS")
-            transaction.commit()
+            transaction?.replace(R.id.fragment_tela, VagasFragment(), "FRAGMENT_VAGAS")
+            transaction?.commit()
+
+            resetImageViews()
+            binding.ivVagas.setBackgroundResource(R.drawable.icon_monitor_selected)
         }
+    }
+
+    fun resetImageViews() {
+        binding.ivDados.setBackgroundResource(R.drawable.user)
+        binding.ivEmpresas.setBackgroundResource(R.drawable.icon_grid)
+        binding.ivVagas.setBackgroundResource(R.drawable.icon_monitor)
     }
 
     override fun onCreateView(

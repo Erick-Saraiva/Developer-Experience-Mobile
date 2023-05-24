@@ -1,6 +1,7 @@
 package com.example.dx_kotlin.Utilities
 import com.example.dx_kotlin.Model.Empresa
 import com.example.dx_kotlin.Model.Usuario
+import com.example.dx_kotlin.Model.Vaga
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -17,5 +18,9 @@ interface ApiEmpresa {
 
     @GET("empresas/sessao/{usuario}")
     fun getEmpresaSession(@Path("usuario") usuario: String?) : Call<Empresa>
+
+    @GET("empresas/")
+    fun getEmpresas(): Call<List<Empresa>>
+
 
 }

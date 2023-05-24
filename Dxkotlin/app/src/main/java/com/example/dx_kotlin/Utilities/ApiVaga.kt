@@ -9,6 +9,6 @@ import retrofit2.http.Path
 interface ApiVaga {
 
 
-    @GET("vagas")
+    @GET("vagas/")
     fun getVagas(): Call<List<Vaga>>
 }

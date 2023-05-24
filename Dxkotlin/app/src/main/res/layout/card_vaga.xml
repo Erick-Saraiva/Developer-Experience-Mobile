@@ -18,8 +18,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@color/roxo_padrao"
             android:id="@+id/img_card"
+            android:background="@color/white"
+            android:foregroundGravity="center"
             ></ImageView>
 
         <ImageView
@@ -29,7 +30,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"></ImageView>
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_edittext"
+            ></ImageView>
 
 
         <TextView
@@ -54,7 +57,23 @@
             android:layout_toRightOf="@id/img_logo_empresa"
             android:textColor="@color/vagas_text_color"
             android:textSize="16dp"
+            android:id="@+id/txt_senioridade"
+            android:text="Senioridade:"
+            android:textStyle="bold"
+            ></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_titulo_da_vaga"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/img_logo_empresa"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/vagas_text_color"
+            android:textSize="16dp"
             android:id="@+id/txt_descricao_vaga"
+            android:text="Descrição da vaga:"
+            android:textStyle="bold"
             ></TextView>
 
         <Button
