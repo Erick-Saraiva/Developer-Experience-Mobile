@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -79,7 +80,7 @@
             android:textSize="16sp"
             android:background="@drawable/rounded_edittext"
             android:textColor="@color/black"
-            android:id="@+id/et_email"
+            android:id="@+id/et_linguagem"
             android:drawablePadding="8dp"
             android:padding="5dp"
             android:layout_marginTop="8dp"
@@ -115,32 +116,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tempo estimado"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:id="@+id/txt_senha"
-            ></TextView>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:hint="6 meses"
-            android:textColorHint="@color/black"
-            android:textSize="16sp"
-            android:background="@drawable/rounded_edittext"
-            android:textColor="@color/black"
-            android:id="@+id/et_tempo_estimado"
-            android:drawablePadding="8dp"
-            android:padding="5dp"
-            android:layout_below="@id/et_nome"
-            android:inputType="textPassword"
-            android:layout_marginTop="8dp"
-            />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Senioridade"
             android:textSize="18dp"
             android:textColor="@color/black"
@@ -167,22 +142,17 @@
             android:textSize="16sp"
             android:text="@string/registrar"
             android:layout_below="@id/et_senioridade"
-            android:id="@+id/btn_Login"
             android:backgroundTint="#9747FF"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:onClick="cadastrarUsuario"
             android:layout_gravity="center"
+            android:onClick="cadastrarVaga"
+            android:id="@+id/btn_registrar_vaga"
             />
 
-        <TextView
-            android:id="@+id/tv_autenticacao"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@id/img_login"
-            android:text=""/>
 
     </LinearLayout>
 
 </LinearLayout>
+

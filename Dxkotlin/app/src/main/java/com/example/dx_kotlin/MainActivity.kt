@@ -12,10 +12,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.dx_kotlin.Model.Empresa
 import com.example.dx_kotlin.Model.Usuario
 import com.example.dx_kotlin.Utilities.Apis
@@ -43,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     fun cadastroUsuario() {
         val cadastroUsuario = Intent(this, CadastroUsuario::class.java)
         startActivity(cadastroUsuario)
@@ -57,58 +53,65 @@ class MainActivity : AppCompatActivity() {
         val apiUsuarios = Apis.getApiUsuario()
         val apiEmpresa = Apis.getApiEmpresa()
 
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        val selectedRadioButtonId = radioGroup.checkedRadioButtonId
 
-        val callbackUsuario = object : Callback<Usuario> {
-            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                if (response.isSuccessful) {
-
-                    if (response.body() != null) {
-                        tvAutenticacao.text = "Usuário autenticado!"
-                        tela2.putExtra("usuario", usuario)
-                        sharedPref.edit().putString("usuario", usuario).apply()
-                        startActivity(tela2)
+        if (selectedRadioButtonId == R.id.radioEmpresa) {
+            // Item "Empresa" selecionado
+            val callbackEmpresa = object : Callback<Empresa> {
+                override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
+                    if (response.isSuccessful) {
+                        if (response.body() != null) {
+                            tvAutenticacao.text = "Usuário autenticado!"
+                            tela2.putExtra("usuario", usuario)
+                            sharedPref.edit().putString("usuario", usuario).apply()
+                            startActivity(tela2)
+                        } else {
+                            tvAutenticacao.text = "Login e/ou senha inválidos"
+                        }
                     } else {
-                        tvAutenticacao.text = "Login e/ou senha inválidos"
+                        tvAutenticacao.text = "Erro na API: ${response.message()}"
                     }
-                } else {
-                    tvAutenticacao.text = "Erro na API: ${response.message()}"
+                }
+
+                override fun onFailure(call: Call<Empresa>, t: Throwable) {
+                    tvAutenticacao.text = "Erro na API: ${t.message}"
+                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                    t.printStackTrace()
                 }
             }
 
-            override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                tvAutenticacao.text = "Erro na API: ${t.message}"
-                Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
-            }
-        }
-
-        val callbackEmpresa = object : Callback<Empresa> {
-            override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
-                if (response.isSuccessful) {
-
-
-                    if (response.body() != null) {
-                        tvAutenticacao.text = "Usuário autenticado!"
-                        tela2.putExtra("usuario", usuario)
-                        sharedPref.edit().putString("usuario", usuario).apply()
-                        startActivity(tela2)
+            apiEmpresa.postLogin(usuario, senha).enqueue(callbackEmpresa)
+        } else if (selectedRadioButtonId == R.id.radioUsuario) {
+            // Item "Usuário" selecionado
+            val callbackUsuario = object : Callback<Usuario> {
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        if (response.body() != null) {
+                            tvAutenticacao.text = "Usuário autenticado!"
+                            tela2.putExtra("usuario", usuario)
+                            sharedPref.edit().putString("usuario", usuario).apply()
+                            startActivity(tela2)
+                        } else {
+                            tvAutenticacao.text = "Login e/ou senha inválidos"
+                        }
                     } else {
-                        tvAutenticacao.text = "Login e/ou senha inválidos"
+                        tvAutenticacao.text = "Erro na API: ${response.message()}"
                     }
-                } else {
-                    tvAutenticacao.text = "Erro na API: ${response.message()}"
+                }
+
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    tvAutenticacao.text = "Erro na API: ${t.message}"
+                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                    t.printStackTrace()
                 }
             }
 
-            override fun onFailure(call: Call<Empresa>, t: Throwable) {
-                tvAutenticacao.text = "Erro na API: ${t.message}"
-                Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
-            }
+            apiUsuarios.postLogin(usuario, senha).enqueue(callbackUsuario)
+        } else {
+            // Nenhum item selecionado
+            tvAutenticacao.text = "Selecione uma opção (Empresa/Usuário)"
         }
-
-        apiUsuarios.postLogin(usuario, senha).enqueue(callbackUsuario)
-        apiEmpresa.postLogin(usuario, senha).enqueue(callbackEmpresa)
     }
 
     fun telaCadastroEmpresa() {

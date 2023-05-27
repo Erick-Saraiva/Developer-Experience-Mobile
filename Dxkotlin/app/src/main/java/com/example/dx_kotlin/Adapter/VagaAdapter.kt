@@ -7,6 +7,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,7 @@ class VagaAdapter(
         )
         return FilmeViewHolder(itemView)
     }
+
 
     override fun onBindViewHolder(holder: VagaAdapter.FilmeViewHolder, position: Int) {
         val vaga = lista.get(position)

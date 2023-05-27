@@ -16,17 +16,20 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ModalVaga"
+            android:exported="false" />
         <activity
             android:name=".Components.LoadingDialog"
             android:exported="false" />
+        <activity android:name=".BottomSheet" />
+
         <activity
             android:name=".NavegacaoFragment"
             android:exported="false" />
         <activity
             android:name=".DadosCadastrais"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CadastroEmpresa"
             android:exported="false" />

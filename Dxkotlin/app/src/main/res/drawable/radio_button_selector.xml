@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado quando o botão de rádio está selecionado -->
+    <item android:state_checked="true" android:color="@color/black" />
+    <!-- Estado padrão -->
+    <item android:color="@color/roxo_padrao" />
+</selector>

@@ -8,9 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dx_kotlin.Model.Empresa
-import com.example.dx_kotlin.Model.Vaga
 import com.example.dx_kotlin.R
-import com.squareup.picasso.Picasso
 
 class EmpresaAdapter(
     var lista: List<Empresa>,
@@ -27,6 +25,11 @@ class EmpresaAdapter(
         return EmpresaAdapter.FilmeViewHolder(itemView)
     }
 
+
+    fun submitList(filteredList: List<Empresa>) {
+        lista = filteredList
+        notifyDataSetChanged()
+    }
 
     override fun onBindViewHolder(holder: EmpresaAdapter.FilmeViewHolder, position: Int) {
         val empresa = lista.get(position)

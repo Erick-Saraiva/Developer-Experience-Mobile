@@ -37,7 +37,7 @@
             android:layout_alignParentEnd="true"
             android:textColor="@color/btn_vagas_selected"
             android:textSize="16sp"
-            android:onClick="showDialog"
+            android:onClick="FshowDialog"
             />
 
         <androidx.appcompat.widget.SearchView

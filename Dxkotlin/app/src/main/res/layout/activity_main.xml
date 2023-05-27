@@ -22,6 +22,7 @@
             android:layout_marginTop="16dp"
             ></ImageView>
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,6 +45,31 @@
             android:layout_marginTop="200dp"
 
             ></ImageView>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_login"
+            android:orientation="horizontal"
+            android:layout_marginLeft="54dp"
+            android:theme="@style/RadioButtonTheme"
+            >
+
+            <RadioButton
+                android:id="@+id/radioEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empresa"
+                />
+
+            <RadioButton
+                android:id="@+id/radioUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuário" />
+
+        </RadioGroup>
 
         <EditText
             android:layout_below="@id/img_login"
