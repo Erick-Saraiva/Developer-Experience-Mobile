@@ -19,5 +19,9 @@ interface ApiUsuario {
     @POST("usuarios/")
     fun post(@Body usuario: Usuario) : Call<Usuario>
 
+    @POST("usuarios/candidatar-vaga")
+    fun canditarAVaga(@Body vaga: Any): Call<Any>
+
+
 
 }
