@@ -35,14 +35,27 @@ class VagaAdapter(
 
 
     override fun onBindViewHolder(holder: VagaAdapter.FilmeViewHolder, position: Int) {
+        val sharedPref = context?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
+        val idUsuario = sharedPref?.getInt("idUsuario", 0)
+        val usuario = sharedPref?.getString("usuario", null)
+        val senha = sharedPref?.getString("senha", null)
+        val idEmpresa = 1;
         val vaga = lista.get(position)
+        var idVaga = vaga.id
         holder.tituloVaga.text = vaga.titulo
         holder.descricaoVaga.text = "Descrição: " + vaga.tecnologia
         holder.senioridadeVaga.text ="Senioridade: " + vaga.senioridade
         Picasso.with(context).load(vaga.urlImagem).into(holder.logo)
         holder.btnCandidatarse.setOnClickListener {
-            candidatarse()
-            print("dadlsdsd")
+            if (idUsuario != null) {
+                candidatarse(idVaga, idUsuario, idEmpresa)
+            }
+        }
+        holder.btnCancelar.setOnClickListener {
+            print(usuario + "senha: " + senha)
+            if (usuario != null && senha != null) {
+                desfazer(usuario, senha)
+            }
         }
     }
 
@@ -56,26 +69,53 @@ class VagaAdapter(
         notifyDataSetChanged()
     }
 
-    private fun obterCandidatura(): VagaEmpresaUsuario {
-        val seCandidatar: VagaEmpresaUsuario = VagaEmpresaUsuario("", vaga = Vagateste(1), usuario = Usuarioteste(1), empresa = Empresateste(1))
+    private fun obterCandidatura(idVaga: Int, idUsuario: Int, idEmpresa: Int): VagaEmpresaUsuario {
+        val seCandidatar: VagaEmpresaUsuario =
+            VagaEmpresaUsuario("",
+                vaga = Vagateste(idVaga),
+                usuario = Usuarioteste(idUsuario),
+                empresa = Empresateste(idEmpresa))
         return seCandidatar;
     }
 
-    private fun candidatarse(){
+    private fun candidatarse(idVaga: Int, idUsuario: Int, idEmpresa: Int){
         val apiUsuario = Apis.getApiUsuario()
 
-        val call = apiUsuario.canditarAVaga(obterCandidatura())
+        val call = apiUsuario.canditarAVaga(obterCandidatura(idVaga, idUsuario, idEmpresa))
         call.enqueue(object : Callback <Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if (response.isSuccessful) {
                     val vagas = response.body()
                     println(response.body())
-
                     if (vagas != null) {
 
                     }
+                } else {
+                    // Lidar com o erro da resposta
+                    println(response.body())
+                }
+            }
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                Toast.makeText(context, "Erro na API: ${t.message}",
+                    Toast.LENGTH_SHORT).show()
+                t.printStackTrace()
+            }
 
-                    // Faça algo com as vagas retornadas
+
+        })
+    }
+
+    private fun desfazer(usuario: String, senha: String){
+        val apiUsuario = Apis.getApiUsuario()
+        val call = apiUsuario.desfazerPilha(usuario, senha)
+        call.enqueue(object : Callback <Any> {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                if (response.isSuccessful) {
+                    val pilha = response.body()
+                    println(response.body())
+                    if (pilha != null) {
+
+                    }
                 } else {
                     // Lidar com o erro da resposta
                     println(response.body())
@@ -98,6 +138,7 @@ class VagaAdapter(
         val senioridadeVaga = itemView.findViewById<TextView>(R.id.txt_senioridade)
         val logo = itemView.findViewById<ImageView>(R.id.img_logo_empresa)
         val btnCandidatarse = itemView.findViewById<Button>(R.id.btn_candidatar_se)
+        val btnCancelar = itemView.findViewById<Button>(R.id.btn_cancelar)
     }
 
 

@@ -1,7 +1,7 @@
 package com.example.dx_kotlin.Model
 
 data class Empresa (
-    val id:Int,
+    val idEmpresa:Int,
     val usuario:String,
     val senha:String,
     val dataNascimento: String,

@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import java.util.*
 
 data class Usuario (
-    val id:Int,
+    val idUsuario:Int,
     val usuario:String,
     val senha:String,
     val dataNascimento: String,

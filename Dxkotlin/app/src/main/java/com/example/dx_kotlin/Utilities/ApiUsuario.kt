@@ -3,6 +3,7 @@ package com.example.dx_kotlin.Utilities
 import com.example.dx_kotlin.Model.Usuario
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -21,6 +22,9 @@ interface ApiUsuario {
 
     @POST("usuarios/candidatar-vaga")
     fun canditarAVaga(@Body vaga: Any): Call<Any>
+
+    @DELETE("/login/{usuario}/{senha}/desfazer")
+    fun desfazerPilha(@Path("usuario")usuario: String, @Path("senha")senha: String): Call<Any>
 
 
 

@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
+import com.example.dx_kotlin.Adapter.VagaAdapter
 import com.example.dx_kotlin.Model.Empresa
 import com.example.dx_kotlin.Model.Usuario
 import com.example.dx_kotlin.Utilities.Apis
@@ -47,15 +48,17 @@ class MainActivity : AppCompatActivity() {
 
     fun validarAutenticacao(view: View) {
         val tela2 = Intent(applicationContext, DadosCadastrais::class.java)
+        val vagaAdapter = Intent(applicationContext, VagaAdapter::class.java)
         val usuario = findViewById<EditText>(R.id.et_email).text.toString()
         val senha = findViewById<EditText>(R.id.et_senha).text.toString()
         val sharedPref = getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
         val apiUsuarios = Apis.getApiUsuario()
         val apiEmpresa = Apis.getApiEmpresa()
-
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
         val selectedRadioButtonId = radioGroup.checkedRadioButtonId
 
+        vagaAdapter.putExtra("senha", senha)
+        sharedPref.edit().putString("senha", senha).apply()
         if (selectedRadioButtonId == R.id.radioEmpresa) {
             // Item "Empresa" selecionado
             val callbackEmpresa = object : Callback<Empresa> {
@@ -82,15 +85,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             apiEmpresa.postLogin(usuario, senha).enqueue(callbackEmpresa)
+
         } else if (selectedRadioButtonId == R.id.radioUsuario) {
             // Item "Usuário" selecionado
             val callbackUsuario = object : Callback<Usuario> {
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                     if (response.isSuccessful) {
+
                         if (response.body() != null) {
                             tvAutenticacao.text = "Usuário autenticado!"
+
                             tela2.putExtra("usuario", usuario)
                             sharedPref.edit().putString("usuario", usuario).apply()
+                            vagaAdapter.putExtra("idUsuario", response.body()!!.idUsuario)
+                            sharedPref.edit().putInt("idUsuario", response.body()!!.idUsuario).apply()
                             startActivity(tela2)
                         } else {
                             tvAutenticacao.text = "Login e/ou senha inválidos"

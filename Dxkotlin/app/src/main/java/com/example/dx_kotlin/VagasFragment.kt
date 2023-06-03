@@ -160,51 +160,6 @@ class VagasFragment : Fragment() {
         dialog.window!!.setGravity(Gravity.BOTTOM)
     }
 
-//    private fun obterCandidatura(): Any {
-//        val seCandidatar = object  {
-//            val dataVaga = ""
-//            val vaga = object {
-//                val id = 1
-//            }
-//            val usuario = object {
-//                val idUsuario = 1
-//            }
-//            val empresa = object {
-//                val idEmpresa = 1
-//            }
-//        }
-//        return seCandidatar;
-//    }
-//
-//    private fun candidatarse(view: View){
-//        val apiUsuario = Apis.getApiUsuario()
-//
-//        val call = apiUsuario.canditarAVaga(obterCandidatura())
-//        call.enqueue(object : Callback <Any> {
-//            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-//                if (response.isSuccessful) {
-//                    val vagas = response.body()
-//                    println(response.body())
-//                    println("lalalala")
-//                    if (vagas != null) {
-//                        println("deu bom saporra")
-//                    }
-//
-//                    // Faça algo com as vagas retornadas
-//                } else {
-//                    // Lidar com o erro da resposta
-//                    println("Deu ruim pr krl")
-//                }
-//            }
-//            override fun onFailure(call: Call<Any>, t: Throwable) {
-//                Toast.makeText(context, "Erro na API: ${t.message}",
-//                    Toast.LENGTH_SHORT).show()
-//                t.printStackTrace()
-//            }
-//
-//
-//        })
-//    }
 }
 
 

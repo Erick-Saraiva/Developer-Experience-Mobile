@@ -50,7 +50,6 @@ class DadosFragment : Fragment() {
                 if (response.isSuccessful) {
                     val usuarios = response.body()
                     if (usuarios != null) {
-
                         binding.txtNome.text = usuarios.nome
                         binding.txtCpf.append(usuarios.cpf)
                         binding.txtOnclickMudarEndereco.text = "${usuarios.rua}, ${usuarios.bairro} - ${usuarios.numero} "
