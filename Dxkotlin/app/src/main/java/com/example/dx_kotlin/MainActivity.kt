@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         val usuario = findViewById<EditText>(R.id.et_email).text.toString()
         val senha = findViewById<EditText>(R.id.et_senha).text.toString()
         val sharedPrefUsuario = getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
         val sharedPrefEmpresa = getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
         val apiUsuarios = Apis.getApiUsuario()
         val apiEmpresa = Apis.getApiEmpresa()

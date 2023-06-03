@@ -107,6 +107,7 @@ class VagasFragment : Fragment() {
         }
         val sharedPrefUsuario = activity?.getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
         val sharedPrefEmpresa = activity?.getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
+        val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
         val usuario = sharedPrefUsuario?.getString("cpf",null)
         val empresa = sharedPrefEmpresa?.getString("cnpj",null)
 
