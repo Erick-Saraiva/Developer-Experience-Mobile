@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity() {
                             tvAutenticacao.text = "Empresa autenticada!"
                             tela2.putExtra("usuario", usuario)
                             sharedPrefUsuario.edit().putString("cpf", null).apply()
+                            sharedPrefEmpresa.edit().putString("usuario", usuario).apply()
+                            sharedPrefUsuario.edit().putString("usuario", null).apply()
                             sharedPrefEmpresa.edit().putString("cnpj", response.body()!!.cnpj).apply()
                             startActivity(tela2)
                         } else {
@@ -100,6 +102,8 @@ class MainActivity : AppCompatActivity() {
                             tvAutenticacao.text = "Usuário autenticado!"
                             tela2.putExtra("usuario", usuario)
                             sharedPrefEmpresa.edit().putString("cnpj", null).apply()
+                            sharedPrefUsuario.edit().putString("usuario", usuario).apply()
+                            sharedPrefEmpresa.edit().putString("usuario", null).apply()
                             sharedPrefUsuario.edit().putString("cpf", response.body()!!.cpf).apply()
                             startActivity(tela2)
                         } else {
