@@ -1,0 +1,147 @@
+Index: src/main/java/com/example/dx_kotlin/CadastroUsuario.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.dx_kotlin\r\n\r\nimport android.content.Intent\r\nimport android.os.Build\r\nimport android.os.Bundle\r\nimport android.view.View\r\nimport android.widget.EditText\r\nimport android.widget.TextView\r\nimport android.widget.Toast\r\nimport androidx.annotation.RequiresApi\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport retrofit2.Call\r\nimport retrofit2.Callback\r\nimport retrofit2.Response\r\nimport java.text.SimpleDateFormat\r\nimport java.time.LocalDate\r\nimport java.time.LocalDateTime\r\nimport java.util.*\r\n\r\nclass CadastroUsuario : AppCompatActivity() {\r\n    lateinit var tvAutenticacao: TextView\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_cadastro_usuario)\r\n        tvAutenticacao = findViewById(R.id.tv_autenticacao)\r\n    }\r\n\r\n    @RequiresApi(Build.VERSION_CODES.O)\r\n    fun cadastrarUsuario(view: View) {\r\n        val tela2 = Intent(applicationContext, MainActivity::class.java)\r\n        val apiUsuarios = Apis.getApiUsuario()\r\n        var contador = 1\r\n\r\n\r\n        val id = contador++\r\n        val usuario = findViewById<EditText>(R.id.et_usuario).text.toString()\r\n        val senha = findViewById<EditText>(R.id.et_senha).text.toString()\r\n        val dataNascimento = findViewById<EditText>(R.id.et_data_nascimento).text.toString()\r\n        val nome = findViewById<EditText>(R.id.et_nome).text.toString()\r\n        val email = findViewById<EditText>(R.id.et_email).text.toString()\r\n        val cpf = findViewById<EditText>(R.id.et_cpf).text.toString()\r\n        val rua = findViewById<EditText>(R.id.et_rua).text.toString()\r\n        val numero = findViewById<EditText>(R.id.et_numero).text.toString().toInt()\r\n        val cep = findViewById<EditText>(R.id.et_cep).text.toString()\r\n        val bairro = findViewById<EditText>(R.id.et_bairro).text.toString()\r\n        val cidade = findViewById<EditText>(R.id.et_cidade).text.toString()\r\n        val complemento = findViewById<EditText>(R.id.et_complemento).text.toString()\r\n        val telefone = findViewById<EditText>(R.id.et_telefone).text.toString()\r\n\r\n        val data = LocalDate.parse(dataNascimento)\r\n\r\n        val chamadaPOST = apiUsuarios.cadastroUsuario(Usuario(id, usuario, senha, data, nome, email, cpf, rua, numero, cep, bairro, cidade, complemento, telefone))\r\n\r\n        chamadaPOST.enqueue(object : Callback<Usuario> {\r\n            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {\r\n                if (response.isSuccessful) {\r\n                    val usuarios = response.body()\r\n\r\n                    if (usuarios?.id != 0) {\r\n                        tvAutenticacao.text = \"Usuário cadastrado!\"\r\n                        startActivity(tela2)\r\n                    } else {\r\n                        tvAutenticacao.text = \"Informações inválidas\"\r\n                    }\r\n                } else {\r\n                    tvAutenticacao.text = \"Informações inválidas\"\r\n                }\r\n            }\r\n\r\n            override fun onFailure(call: Call<Usuario>, t: Throwable) {\r\n                Toast.makeText(baseContext, \"Erro na API: ${t.message}\",\r\n                    Toast.LENGTH_SHORT).show()\r\n                t.printStackTrace()\r\n            }\r\n\r\n        })\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt b/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt
+--- a/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt	
++++ b/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt	
+@@ -56,7 +56,7 @@
+                 if (response.isSuccessful) {
+                     val usuarios = response.body()
+ 
+-                    if (usuarios?.id != 0) {
++                    if (usuarios?.numero!! > 0) {
+                         tvAutenticacao.text = "Usuário cadastrado!"
+                         startActivity(tela2)
+                     } else {
+Index: ../.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_cadastro_empresa.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_cadastro_usuario.xml\" value=\"0.36666666666666664\" />\r\n        <entry key=\"..\\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_dados_cadastrais.xml\" value=\"0.36666666666666664\" />\r\n        <entry key=\"..\\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_main.xml\" value=\"0.1\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/misc.xml b/../.idea/misc.xml
+--- a/../.idea/misc.xml	
++++ b/../.idea/misc.xml	
+@@ -4,7 +4,7 @@
+     <option name="filePathToZoomLevelMap">
+       <map>
+         <entry key="..\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_cadastro_empresa.xml" value="0.25" />
+-        <entry key="..\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_cadastro_usuario.xml" value="0.36666666666666664" />
++        <entry key="..\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_cadastro_usuario.xml" value="0.2" />
+         <entry key="..\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_dados_cadastrais.xml" value="0.36666666666666664" />
+         <entry key="..\:/Users/sarai/Documents/dx-kotlin/Dxkotlin/app/src/main/res/layout/activity_main.xml" value="0.1" />
+       </map>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"969f7f13-38b3-46c4-aec1-f124b597ac7a\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/../build.gradle\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../build.gradle\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/../..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OniurRdPMn1wtaNgrtjvpQBj8l\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"969f7f13-38b3-46c4-aec1-f124b597ac7a\" name=\"Changes\" comment=\"\" />\r\n      <created>1682202973781</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1682202973781</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,12 +5,28 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="969f7f13-38b3-46c4-aec1-f124b597ac7a" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dx_kotlin/Api.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dx_kotlin/Api.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dx_kotlin/CadastroUsuario.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_cadastro_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_cadastro_usuario.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="ExternalProjectsManager">
++    <system id="GRADLE">
++      <state>
++        <projects_view>
++          <tree_state>
++            <expand />
++            <select />
++          </tree_state>
++        </projects_view>
++      </state>
++    </system>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+Index: src/main/res/layout/activity_cadastro_usuario.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".CadastroUsuario\">\r\n\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Cadastro\"\r\n            android:textSize=\"28sp\"\r\n            android:layout_marginTop=\"18dp\"\r\n            android:id=\"@+id/txt_cadastro\"\r\n            android:textColor=\"#049\"\r\n            ></TextView>\r\n\r\n        <ImageView\r\n            android:layout_width=\"330dp\"\r\n            android:layout_height=\"330dp\"\r\n            android:background=\"@mipmap/img_cadastro\"\r\n            android:layout_centerHorizontal=\"true\"\r\n            android:layout_below=\"@id/txt_cadastro\"\r\n            android:layout_marginTop=\"120dp\"\r\n            android:id=\"@+id/img_cadastro\"\r\n            ></ImageView>\r\n\r\n\r\n        <ScrollView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_below=\"@id/img_cadastro\"\r\n            android:layout_centerHorizontal=\"true\"\r\n            >\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:orientation=\"vertical\"\r\n                >\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Usuario\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_usuario\"\r\n                    android:layout_marginTop=\"40dp\"\r\n\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Nome\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_nome\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Email\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_email\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_nome\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"CPF\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_cpf\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_nome\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Senha\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_senha\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_nome\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Telefone\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_telefone\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_senha\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n\r\n                <EditText\r\n                    android:id=\"@+id/et_data_nascimento\"\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:layout_below=\"@id/et_telefone\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:hint=\"Data Nascimento\"\r\n                    android:inputType=\"date\"\r\n                    android:padding=\"5dp\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\" />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Rua\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_rua\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_data_nascimento\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Cep\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_cep\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_rua\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Bairro\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_bairro\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_rua\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Cidade\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_cidade\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_cep\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Número\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_numero\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_cidade\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <EditText\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:hint=\"Complemento\"\r\n                    android:textColorHint=\"@color/black\"\r\n                    android:textSize=\"16sp\"\r\n                    android:background=\"@drawable/rounded_edittext\"\r\n                    android:textColor=\"@color/white\"\r\n                    android:id=\"@+id/et_complemento\"\r\n                    android:drawablePadding=\"8dp\"\r\n                    android:padding=\"5dp\"\r\n                    android:layout_below=\"@id/et_cidade\"\r\n                    android:layout_marginTop=\"18dp\"\r\n                    />\r\n\r\n                <Button\r\n                    android:layout_width=\"370dp\"\r\n                    android:layout_height=\"52dp\"\r\n                    android:textSize=\"16sp\"\r\n                    android:text=\"Registrar\"\r\n                    android:layout_below=\"@id/et_complemento\"\r\n                    android:id=\"@+id/btn_Login\"\r\n                    android:backgroundTint=\"#9747FF\"\r\n                    android:layout_marginTop=\"16dp\"\r\n                    android:textAllCaps=\"false\"\r\n                    />\r\n\r\n                <TextView\r\n                    android:id=\"@+id/tv_autenticacao\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:layout_below=\"@id/img_login\"\r\n                    android:text=\"asasasasa\"/>\r\n\r\n            </LinearLayout>\r\n\r\n        </ScrollView>\r\n\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/res/layout/activity_cadastro_usuario.xml b/src/main/res/layout/activity_cadastro_usuario.xml
+--- a/src/main/res/layout/activity_cadastro_usuario.xml	
++++ b/src/main/res/layout/activity_cadastro_usuario.xml	
+@@ -99,8 +99,9 @@
+                     android:textColorHint="@color/black"
+                     android:textSize="16sp"
+                     android:background="@drawable/rounded_edittext"
+-                    android:textColor="@color/white"
++                    android:textColor="@color/black"
+                     android:id="@+id/et_cpf"
++                    android:inputType="number"
+                     android:drawablePadding="8dp"
+                     android:padding="5dp"
+                     android:layout_below="@id/et_nome"
+Index: ../build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    id 'com.android.application' version '7.4.1' apply false\r\n    id 'com.android.library' version '7.4.1' apply false\r\n    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../build.gradle b/../build.gradle
+--- a/../build.gradle	
++++ b/../build.gradle	
+@@ -1,6 +1,6 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.4.1' apply false
+-    id 'com.android.library' version '7.4.1' apply false
++    id 'com.android.application' version '7.2.2' apply false
++    id 'com.android.library' version '7.2.2' apply false
+     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+ }
+\ No newline at end of file
+Index: src/main/java/com/example/dx_kotlin/Api.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.dx_kotlin\r\n\r\nimport retrofit2.Call\r\nimport retrofit2.http.GET\r\nimport retrofit2.http.POST\r\nimport retrofit2.http.Path\r\nimport retrofit2.http.Query\r\n\r\ninterface Api {\r\n    @GET(\"usuarios\")\r\n    fun getTodos() : Call<List<Usuario>>\r\n\r\n    @POST(\"usuarios/login/{usuario}/{senha}\")\r\n    fun postLogin(@Path(\"usuario\")usuario:String, @Path(\"senha\")senha:String) : Call<Boolean>\r\n\r\n    @POST(\"usuarios/\")\r\n    fun cadastroUsuario(@Path(\"usuario\")usuario: Usuario) : Call<Usuario>\r\n\r\n}
+===================================================================
+diff --git a/src/main/java/com/example/dx_kotlin/Api.kt b/src/main/java/com/example/dx_kotlin/Api.kt
+--- a/src/main/java/com/example/dx_kotlin/Api.kt	
++++ b/src/main/java/com/example/dx_kotlin/Api.kt	
+@@ -1,10 +1,7 @@
+ package com.example.dx_kotlin
+ 
+ import retrofit2.Call
+-import retrofit2.http.GET
+-import retrofit2.http.POST
+-import retrofit2.http.Path
+-import retrofit2.http.Query
++import retrofit2.http.*
+ 
+ interface Api {
+     @GET("usuarios")
+@@ -14,6 +11,6 @@
+     fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Boolean>
+ 
+     @POST("usuarios/")
+-    fun cadastroUsuario(@Path("usuario")usuario: Usuario) : Call<Usuario>
++    fun cadastroUsuario(@Body usuario: Usuario) : Call<Usuario>
+ 
+ }
+\ No newline at end of file

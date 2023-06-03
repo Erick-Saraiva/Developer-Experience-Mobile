@@ -39,7 +39,6 @@ class EmpresaAdapter(
     }
 
     override fun getItemCount(): Int {
-        println(lista.size)
         return lista.size
     }
 

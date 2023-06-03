@@ -32,11 +32,6 @@ class VagasFragment : Fragment() {
 
     private lateinit var binding: FragmentVagasBinding
 
-
-
-
-
-
     private val listaVagas = mutableListOf<Vaga>()
 
     fun carregarListaDeVagas() {
@@ -110,22 +105,20 @@ class VagasFragment : Fragment() {
         binding.btnPubliqueAqui.setOnClickListener {
             bottomSheetCadastroVaga()
         }
-        val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
-        val apiUsuarios = Apis.getApiUsuario();
-        val usuario = sharedPref?.getString("usuario",null)
+        val sharedPrefUsuario = activity?.getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
+        val sharedPrefEmpresa = activity?.getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
+        val usuario = sharedPrefUsuario?.getString("cpf",null)
+        val empresa = sharedPrefEmpresa?.getString("cnpj",null)
 
-        var cpf = sharedPref?.getString("cpf", null)
-        var cnpj = sharedPref?.getString("cnpj", null)
-        var isEmpresa = sharedPref?.getBoolean("isEmpresa", false)
-        println(cpf)
-        println(cnpj)
-        println(isEmpresa)
+        println(usuario)
+        println(empresa)
 //
-//        if (isEmpresa == true){
-//            binding.btnPubliqueAqui.visibility = View.VISIBLE
-//        } else {
-//            binding.btnPubliqueAqui.visibility = View.GONE
-//        }
+        if (usuario != null){
+            binding.btnPubliqueAqui.visibility = View.GONE
+        }
+        if (empresa != null) {
+            binding.btnPubliqueAqui.visibility = View.VISIBLE
+        }
 
         // recuperar a informacao do usuario da shared preferences
 
