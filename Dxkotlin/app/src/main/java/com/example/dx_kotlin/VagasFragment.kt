@@ -1,11 +1,15 @@
 package com.example.dx_kotlin
 
+import android.app.ActionBar
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -18,6 +22,7 @@ import com.example.dx_kotlin.Model.Vaga
 import com.example.dx_kotlin.Utilities.ApiVaga
 import com.example.dx_kotlin.Utilities.Apis
 import com.example.dx_kotlin.databinding.FragmentVagasBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import retrofit2.Call
 import retrofit2.Response
 
@@ -27,11 +32,10 @@ class VagasFragment : Fragment() {
 
     private lateinit var binding: com.example.dx_kotlin.databinding.FragmentVagasBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
 
-    }
+
+
 
     private val listaVagas = mutableListOf<Vaga>()
 
@@ -52,8 +56,6 @@ class VagasFragment : Fragment() {
                         // Faça algo com a lista dinâmica
                     }
 
-
-                    // Faça algo com as vagas retornadas
                 } else {
                     // Lidar com o erro da resposta
                 }
@@ -65,7 +67,7 @@ class VagasFragment : Fragment() {
             }
         })
     }
-    val filteredList = mutableListOf<Vaga>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -105,10 +107,9 @@ class VagasFragment : Fragment() {
         configAdapter(view)
         carregarListaDeVagas()
 
-        binding.btnPubliqueAqui.setOnClickListener{
-            showDialog()
+        binding.btnPubliqueAqui.setOnClickListener {
+            bottomSheetCadastroVaga()
         }
-
         val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
         val apiUsuarios = Apis.getApiUsuario();
         val usuario = sharedPref?.getString("usuario",null)
@@ -144,7 +145,7 @@ class VagasFragment : Fragment() {
     }
 
 
-    private fun showDialog() {
+    private fun bottomSheetCadastroVaga() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.bottomsheet_layout)
@@ -157,8 +158,6 @@ class VagasFragment : Fragment() {
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
         dialog.window!!.setGravity(Gravity.BOTTOM)
-
-
     }
 
 //    private fun obterCandidatura(): Any {

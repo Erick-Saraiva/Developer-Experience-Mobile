@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dx_kotlin.Adapter.EmpresaAdapter
-import com.example.dx_kotlin.Adapter.VagaAdapter
 import com.example.dx_kotlin.Model.Empresa
 import com.example.dx_kotlin.Model.Vaga
 import com.example.dx_kotlin.Utilities.Apis
+import com.example.dx_kotlin.databinding.FragmentEmpresasBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +24,11 @@ class EmpresasFragment : Fragment() {
 
     lateinit var empresaAdapter: EmpresaAdapter
 
+    private lateinit var binding: FragmentEmpresasBinding
+
     private val listaEmpresa = mutableListOf<Empresa>()
+
+    val filteredList = mutableListOf<Vaga>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -32,9 +37,34 @@ class EmpresasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_empresas, container, false)
+        binding = FragmentEmpresasBinding.inflate(inflater)
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Chamado quando o usuário pressionar o botão de busca
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val searchText = newText?.trim() ?: ""
+                filterList(searchText)
+                return true
+            }
+        })
+
+        return binding.root
     }
+
+    private fun filterList(searchText: String) {
+        val filteredList = if (searchText.isNotEmpty()) {
+            listaEmpresa.filter { empresa ->
+                empresa.nome.contains(searchText, ignoreCase = true)
+            }
+        } else {
+            listaEmpresa
+        }
+        empresaAdapter.submitList(filteredList)
+    }
+
 
     fun carregarListaDeEmpresas() {
         val apiEmpresa = Apis.getApiEmpresa()
@@ -66,6 +96,8 @@ class EmpresasFragment : Fragment() {
             }
         })
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

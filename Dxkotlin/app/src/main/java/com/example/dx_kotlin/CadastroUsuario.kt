@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class   CadastroUsuario : AppCompatActivity() {
+class CadastroUsuario : AppCompatActivity() {
     lateinit var tvAutenticacao: TextView
     lateinit var btnBack: Button
 
@@ -55,7 +55,20 @@ class   CadastroUsuario : AppCompatActivity() {
         val telefone = findViewById<EditText>(R.id.et_telefone).text.toString()
 
 
-        val user = Usuario(id, usuario, senha, dataNascimento, nome, email, cpf, rua, numero, cep, bairro, cidade, complemento, telefone)
+        val user = Usuario(id,
+            usuario,
+            senha,
+            dataNascimento,
+            nome,
+            email,
+            cpf,
+            rua,
+            numero,
+            cep,
+            bairro,
+            cidade,
+            complemento,
+            telefone)
 
 //        val myPost = Usuario(id = 1,"Vinicius",
 //            "senha123","2002-10-12",

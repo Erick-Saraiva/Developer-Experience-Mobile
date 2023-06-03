@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface ApiEmpresa {
     @POST("empresas/")
-    fun post(@Body empresa: Empresa) : Call<Empresa>
+    fun postEmpresa(@Body empresa: Empresa) : Call<Empresa>
 
     @POST("empresas/login/{usuario}/{senha}")
     fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Empresa>

@@ -33,6 +33,7 @@ class VagaAdapter(
         return FilmeViewHolder(itemView)
     }
 
+
     override fun onBindViewHolder(holder: VagaAdapter.FilmeViewHolder, position: Int) {
         val vaga = lista.get(position)
         holder.tituloVaga.text = vaga.titulo
