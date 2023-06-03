@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
         val txtCadastroEmpresa = findViewById<TextView>(R.id.txt_cadastro_empresa)
 
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.activity_modal_lgpd)
+        dialog.show()
+
+
         txtCadastroEmpresa.setOnClickListener {
             telaCadastroEmpresa()
         }
@@ -62,9 +67,9 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
                     if (response.isSuccessful) {
                         if (response.body() != null) {
-                            tvAutenticacao.text = "Usuário autenticado!"
-                            tela2.putExtra("usuario", usuario)
-                            sharedPref.edit().putString("usuario", usuario).apply()
+                            tvAutenticacao.text = "Empresa autenticada!"
+                            tela2.putExtra("empresa", usuario)
+                            sharedPref.edit().putString("empresa", usuario).apply()
                             startActivity(tela2)
                         } else {
                             tvAutenticacao.text = "Login e/ou senha inválidos"
@@ -73,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                         tvAutenticacao.text = "Erro na API: ${response.message()}"
                     }
                 }
-
                 override fun onFailure(call: Call<Empresa>, t: Throwable) {
                     tvAutenticacao.text = "Erro na API: ${t.message}"
                     Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
@@ -106,7 +110,6 @@ class MainActivity : AppCompatActivity() {
                     t.printStackTrace()
                 }
             }
-
             apiUsuarios.postLogin(usuario, senha).enqueue(callbackUsuario)
         } else {
             // Nenhum item selecionado

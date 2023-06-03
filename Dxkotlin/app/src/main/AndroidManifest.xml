@@ -17,13 +17,15 @@
         android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
         <activity
+            android:name=".ModalLgpd"
+            android:exported="false" />
+        <activity
             android:name=".ModalVaga"
             android:exported="false" />
         <activity
             android:name=".Components.LoadingDialog"
             android:exported="false" />
         <activity android:name=".BottomSheet" />
-
         <activity
             android:name=".NavegacaoFragment"
             android:exported="false" />
