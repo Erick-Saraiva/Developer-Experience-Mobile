@@ -274,6 +274,22 @@
 
                     />
 
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="Sobre nós"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_sobre_nos"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+
+                    />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
