@@ -1,7 +1,5 @@
 package com.example.dx_kotlin.Adapter
-
 import com.example.dx_kotlin.R
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +36,7 @@ class VagaAdapter(
         val sharedPref = context?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
         val idUsuario = sharedPref?.getInt("idUsuario", 0)
         val usuario = sharedPref?.getString("usuario", null)
-        val senha = sharedPref?.getString("senha", null)
+        val senha = sharedPref!!.getString("senha", null)
         val idEmpresa = 1;
         val vaga = lista.get(position)
         var idVaga = vaga.id
@@ -52,7 +50,6 @@ class VagaAdapter(
             }
         }
         holder.btnCancelar.setOnClickListener {
-            print(usuario + "senha: " + senha)
             if (usuario != null && senha != null) {
                 desfazer(usuario, senha)
             }
@@ -60,7 +57,6 @@ class VagaAdapter(
     }
 
     override fun getItemCount(): Int {
-        println(lista.size)
         return lista.size
     }
 
@@ -80,19 +76,14 @@ class VagaAdapter(
 
     private fun candidatarse(idVaga: Int, idUsuario: Int, idEmpresa: Int){
         val apiUsuario = Apis.getApiUsuario()
-
         val call = apiUsuario.canditarAVaga(obterCandidatura(idVaga, idUsuario, idEmpresa))
         call.enqueue(object : Callback <Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if (response.isSuccessful) {
                     val vagas = response.body()
-                    println(response.body())
                     if (vagas != null) {
-
                     }
                 } else {
-                    // Lidar com o erro da resposta
-                    println(response.body())
                 }
             }
             override fun onFailure(call: Call<Any>, t: Throwable) {
@@ -112,13 +103,9 @@ class VagaAdapter(
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if (response.isSuccessful) {
                     val pilha = response.body()
-                    println(response.body())
                     if (pilha != null) {
-
                     }
                 } else {
-                    // Lidar com o erro da resposta
-                    println(response.body())
                 }
             }
             override fun onFailure(call: Call<Any>, t: Throwable) {
@@ -140,7 +127,4 @@ class VagaAdapter(
         val btnCandidatarse = itemView.findViewById<Button>(R.id.btn_candidatar_se)
         val btnCancelar = itemView.findViewById<Button>(R.id.btn_cancelar)
     }
-
-
-
 }

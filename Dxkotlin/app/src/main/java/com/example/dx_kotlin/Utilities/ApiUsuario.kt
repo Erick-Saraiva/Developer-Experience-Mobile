@@ -9,8 +9,6 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiUsuario {
-
-
     @POST("usuarios/login/{usuario}/{senha}")
     fun postLogin(@Path("usuario")usuario:String, @Path("senha")senha:String) : Call<Usuario>
 
@@ -23,9 +21,6 @@ interface ApiUsuario {
     @POST("usuarios/candidatar-vaga")
     fun canditarAVaga(@Body vaga: Any): Call<Any>
 
-    @DELETE("/login/{usuario}/{senha}/desfazer")
+    @DELETE("usuarios/login/{usuario}/{senha}/desfazer")
     fun desfazerPilha(@Path("usuario")usuario: String, @Path("senha")senha: String): Call<Any>
-
-
-
 }
