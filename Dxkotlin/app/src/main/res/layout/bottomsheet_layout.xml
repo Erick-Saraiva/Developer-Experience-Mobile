@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dialog_bg"
     >
 
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/baseline_arrow_back_ios_new_24"
+        android:layout_alignBaseline="@+id/txt_publicar_vaga"
+        ></Button>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Publicar vaga"
+        android:textSize="28sp"
+        android:id="@+id/txt_publicar_vaga"
+        android:textColor="@color/black_ground"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerVertical="true"
         >
 
         <TextView
@@ -20,7 +43,6 @@
             android:text="Título"
             android:textColor="@color/black"
             android:textSize="24dp"
-
             ></TextView>
 
         <EditText
@@ -148,11 +170,10 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:onClick="cadastrarVaga"
-            android:id="@+id/btn_registrar_vaga"
-            />
 
+            />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
 

@@ -23,9 +23,10 @@ interface ApiUsuario {
     @POST("usuarios/candidatar-vaga")
     fun canditarAVaga(@Body vaga: Any): Call<Any>
 
-    @DELETE("/login/{usuario}/{senha}/desfazer")
-    fun desfazerPilha(@Path("usuario")usuario: String, @Path("senha")senha: String): Call<Any>
-
-
+    @DELETE("usuarios/login/{usuario}/{senha}/desfazer")
+    fun desfazerPilha(
+        @Path("usuario") usuario: String?,
+        @Path("senha") senha: String?
+    ): Call<Any>
 
 }

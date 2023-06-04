@@ -32,6 +32,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/white"
             ></ImageView>
 
 

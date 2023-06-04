@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.dx_kotlin.Model.Vaga
@@ -17,12 +18,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BottomSheet: AppCompatActivity() {
-
+    lateinit var btnBack: Button
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottomsheet_layout)
+        btnBack = findViewById(R.id.btn_back)
+        btnBack.setOnClickListener(View.OnClickListener {
+            finish()
+        })
     }
     private var contador = 1
 
@@ -56,7 +61,7 @@ class BottomSheet: AppCompatActivity() {
                     val vaga = response.body()
                     println(response.body())
                     if (response.body() != null) {
-
+                        exibirAlerta("Vaga publicada com sucesso")
                     } else {
 
                     }
@@ -73,5 +78,14 @@ class BottomSheet: AppCompatActivity() {
         })
     }
 
-
+    fun exibirAlerta(mensagem: String) {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Parabéns")
+        alertDialogBuilder.setMessage(mensagem)
+        alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
 }
