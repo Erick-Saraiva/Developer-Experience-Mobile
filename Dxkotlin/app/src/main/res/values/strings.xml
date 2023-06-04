@@ -9,6 +9,45 @@
 
     <!-- TODO: Textos da acitivity de cadastro empresa -->
     <string name="cadastro_empresa">Cadastro empresa</string>
+    <string name="termo_lgpd">
+                "\n"
+                "A Lei 13709/2018 - Lei Geral de Proteção de Dados (LGPD) estabelece como fundamento o respeito à privacidade. Desse modo, o presente Termo de Privacidade tem o propósito de comunicar de forma simples quais tipos de dados pessoais serão coletados, quando, de que forma e para quais finalidades serão utilizados.\n"
+                "\n"
+                "A privacidade é um direito conferido a todo indivíduo, está protegida pela lei brasileira e consiste na habilidade que este tem de controlar a exposição de informações sobre sua vida pessoal, sua intimidade, bem como a disponibilidade de dados sobre si mesmo, de retificar, ratificar ou apagar estes e de proteger a confidencialidade de suas comunicações, seu domicílio, sua imagem, honra e reputação perante terceiros.\n"
+                "\n"
+                "Descrever quais dados poderão ser transferidos para outro país, qual o destino e para qual fim, quando for o caso.\n"
+                "\n"
+                "O titular e/ou seus responsáveis legais são os responsáveis pela atualização, exatidão e veracidade dos dados que informarem à Developer Experience.\n"
+                "\n"
+                "Caso sejam identificados erros de informações cadastradas, a Developer Experience solicitará ao Titular esclarecimentos e/ou correções;\n"
+                "\n"
+                "A Developer Experience não se responsabiliza por dados desatualizados em suas bases de dados, bem como pelo uso, pelo titular, dos ambientes da Developer Experience para quaisquer fins ilegais, ilícitos ou contrários à moralidade.\n"
+                "\n"
+                "Os dados do usuário serão obtidos por meio da efetivação de seu vínculo com a Instituição, quando o usuário insere as informações voluntariamente, por meio de ferramentas de coleta de dados de acesso e navegação existentes em alguns sites e aplicativos da Instituição.\n"
+                "\n"
+                "Os dados coletados são armazenados em ambiente seguro e em servidor próprio ou de terceiro contratado para este fim.\n"
+                "\n"
+                "\n"
+                "\n"
+                "As informações são protegidas com padrões de segurança e confidencialidade, para fornecer aos usuários um ambiente seguro e confiável através do uso de criptografia, certificações digitais e acessos controlados.\n"
+                "\n"
+                "Adicionalmente, o próprio titular deve exercer alguns cuidados para auxiliar na proteção de seus dados.\n"
+                "\n"
+                "Cuidados com Golpes: Os criminosos cibernéticos se aproveitam dos assuntos do momento para enviar mensagens fraudulentas com intuito de roubar dados ou instalar vírus e outros softwares maliciosos por meio de links em mensagens falsas. O vestibular da UFPR pode ser usado como um motivo para tentativas de golpe. O Núcleo de Concursos não envia comunicados automáticos sobre alterações no cadastro ou solicitações para troca de senha, a não ser nos casos em que o próprio o candidato faça uso de procedimento específico para recuperação de senha, o qual encontra-se disponível no Portal do Candidato. Avisos em formato SMS são encaminhados apenas nos casos de notificação sobre mudanças nas datas e/ou procedimentos relativos à aplicação das provas, informações importantes sobre o Registro Acadêmico, alterações significativas no edital do Processo Seletivo e possíveis convocações para etapas do processo seletivo. Essas alterações sempre constam publicadas no site do Núcleo de Concursos, sendo recomendado sempre verificar em nosso site os comunicados e publicações de editais que validem as informações recebidas pelo SMS.Não caia em golpes, o site do Núcleo de Concursos e seu Portal continuam sendo o canal oficial e mais seguro para a obtenção de informações e procedimentos necessários ao acesso e atualização de informações.\n"
+                "\n"
+                "Compartilhamento de senhas: Sua senha é pessoal e intransferível e que deve ser mantida sob sigilo e em ambiente seguro. Não compartilhe a sua senha, ceder ou utilizar a senha de outra pessoa é tipificado como crime no art. 308, do Código Penal.\n"
+                "\n"
+                "Acesso não autorizado ao seu computador, conta ou senha: se certifique de sempre clicar em “sair” ao encerrar sua navegação\n"
+                "\n"
+                "\n"
+                "\n"
+                "Disposições Finais\n"
+                "\n"
+                "As disposições constantes deste Termo de Privacidade estão sujeitas à melhoria e ao aprimoramento contínuo e podem ser atualizadas ou modificadas a qualquer momento, de forma unilateral ou em razão de lei, cabendo ao usuário, ou a seu responsável legal, caso seja menor de idade, o dever de ciência de seu teor no momento do acesso aos sites e plataformas de sistemas da instituição. É recomendado seja realizada a leitura periódica deste Termo, para fins de atualização e conhecimento de direitos e obrigações.\n"
+                "\n"
+                "Caso seja necessária a utilização de empresas terceirizadas para realizar o processamento de quaisquer dados disponibilizados pela Developer Experience, estas deverão, obrigatoriamente, respeitar as regras estipuladas nesse Termo de Privacidade, nas políticas internas de Tecnologia da Informação e Comunicação e nas demais leis vigentes.\n"
+                "\n"
+                Última Atualização: 31/05/2023\</string>
     <string name="usuario">Usuário</string>
     <string name="nome">Nome</string>
     <string name="senha">Senha</string>

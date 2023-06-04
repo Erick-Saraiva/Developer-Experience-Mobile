@@ -1,6 +1,7 @@
 package com.example.dx_kotlin
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -23,7 +24,8 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     lateinit var tvAutenticacao: TextView
-
+    private lateinit var dialog: Dialog
+    private var dialogDisplayed = false
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +35,8 @@ class MainActivity : AppCompatActivity() {
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
         val txtCadastroEmpresa = findViewById<TextView>(R.id.txt_cadastro_empresa)
 
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.activity_modal_lgpd)
-        dialog.show()
-
+        val mensagem = getString(R.string.termo_lgpd)
+        exibirAlerta(mensagem)
 
         txtCadastroEmpresa.setOnClickListener {
             telaCadastroEmpresa()
@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
         val selectedRadioButtonId = radioGroup.checkedRadioButtonId
 
-        vagaAdapter.putExtra("senha", senha)
-        sharedPref.edit().putString("senha", senha).apply()
+        vagaAdapter.putExtra("teste", senha)
+        sharedPref.edit().putString("teste", senha).apply()
         if (selectedRadioButtonId == R.id.radioEmpresa) {
             // Item "Empresa" selecionado
             val callbackEmpresa = object : Callback<Empresa> {
@@ -128,6 +128,18 @@ class MainActivity : AppCompatActivity() {
     fun telaCadastroEmpresa() {
         val telaCadastroEmpresa = Intent(applicationContext, CadastroEmpresa::class.java)
         startActivity(telaCadastroEmpresa)
+    }
+
+
+    fun exibirAlerta(mensagem: String) {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Termo de Privacidade para Atividades Específicas\n")
+        alertDialogBuilder.setMessage(mensagem)
+        alertDialogBuilder.setPositiveButton("Ok, entendi") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 
 }

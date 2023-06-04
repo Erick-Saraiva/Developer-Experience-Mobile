@@ -1,6 +1,7 @@
 package com.example.dx_kotlin
 
 import android.app.ActionBar
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -31,11 +32,6 @@ class VagasFragment : Fragment() {
     lateinit var vagaAdapter: VagaAdapter
 
     private lateinit var binding: com.example.dx_kotlin.databinding.FragmentVagasBinding
-
-
-
-
-
 
     private val listaVagas = mutableListOf<Vaga>()
 
@@ -108,29 +104,9 @@ class VagasFragment : Fragment() {
         carregarListaDeVagas()
 
         binding.btnPubliqueAqui.setOnClickListener {
-            bottomSheetCadastroVaga()
+            versaoActivity()
         }
-        val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
-        val apiUsuarios = Apis.getApiUsuario();
-        val usuario = sharedPref?.getString("usuario",null)
 
-        var cpf = sharedPref?.getString("cpf", null)
-        var cnpj = sharedPref?.getString("cnpj", null)
-        var isEmpresa = sharedPref?.getBoolean("isEmpresa", false)
-        println(cpf)
-        println(cnpj)
-        println(isEmpresa)
-//
-//        if (isEmpresa == true){
-//            binding.btnPubliqueAqui.visibility = View.VISIBLE
-//        } else {
-//            binding.btnPubliqueAqui.visibility = View.GONE
-//        }
-
-        // recuperar a informacao do usuario da shared preferences
-
-       // view.findViewById<Button>(R.id.btn_publicar_vaga).visibility = if (isEmpresa) View.VISIBLE else View.GONE
-        // se ficar estranho com GONE, usar INVISIBLE
     }
 
     private fun configAdapter(view: View) {
@@ -145,20 +121,26 @@ class VagasFragment : Fragment() {
     }
 
 
-    private fun bottomSheetCadastroVaga() {
-        val dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottomsheet_layout)
+    private fun versaoActivity() {
+        val intent = Intent(requireContext(), BottomSheet::class.java)
+        startActivity(intent)
 
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
     }
+
+//    private fun bottomSheetCadastroVaga() {
+//        val dialog = Dialog(requireContext())
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        dialog.setContentView(R.layout.bottomsheet_layout)
+//
+//        dialog.show()
+//        dialog.window!!.setLayout(
+//            ViewGroup.LayoutParams.MATCH_PARENT,
+//            ViewGroup.LayoutParams.WRAP_CONTENT
+//        )
+//        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
+//        dialog.window!!.setGravity(Gravity.BOTTOM)
+//    }
 
 }
 
