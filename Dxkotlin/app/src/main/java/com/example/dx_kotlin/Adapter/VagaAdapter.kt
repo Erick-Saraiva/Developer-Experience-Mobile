@@ -104,24 +104,28 @@ class VagaAdapter(
         val senha = sharedPref?.getString("senha", "sem valor")
         val apiUsuario = Apis.getApiUsuario()
 
-        apiUsuario.desfazerPilha(usuario,senha).enqueue(object : Callback<Any> {
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                if (response.isSuccessful) {
-                    val pilha = response.body()
-                    exibirAlerta("Inscrição cancelada")
-                    println(response.body())
-                    if (pilha != null) {
-                        // Lidar com a resposta bem-sucedida
+        if (usuario != null) {
+            if (senha != null) {
+                apiUsuario.desfazerPilha(usuario,senha).enqueue(object : Callback<Any> {
+                    override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                        if (response.isSuccessful) {
+                            val pilha = response.body()
+                            exibirAlerta("Inscrição cancelada")
+                            println(response.body())
+                            if (pilha != null) {
+                                // Lidar com a resposta bem-sucedida
+                            }
+                        } else {
+                        }
                     }
-                } else {
-                }
-            }
 
-            override fun onFailure(call: Call<Any>, t: Throwable) {
-                Toast.makeText(context, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
+                    override fun onFailure(call: Call<Any>, t: Throwable) {
+                        Toast.makeText(context, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                        t.printStackTrace()
+                    }
+                })
             }
-        })
+        }
     }
 
 

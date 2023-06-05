@@ -22,13 +22,5 @@ interface ApiUsuario {
     fun canditarAVaga(@Body vaga: Any): Call<Any>
 
     @DELETE("usuarios/login/{usuario}/{senha}/desfazer")
-<<<<<<< HEAD
     fun desfazerPilha(@Path("usuario")usuario: String, @Path("senha")senha: String): Call<Any>
-=======
-    fun desfazerPilha(
-        @Path("usuario") usuario: String?,
-        @Path("senha") senha: String?
-    ): Call<Any>
-
->>>>>>> 97ad77f78782ae9a95080890d0894bb8d9bc0fad
 }
