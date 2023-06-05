@@ -23,5 +23,4 @@ interface ApiUsuario {
 
     @DELETE("usuarios/login/{usuario}/{senha}/desfazer")
     fun desfazerPilha(@Path("usuario")usuario: String, @Path("senha")senha: String): Call<Any>
-
 }
