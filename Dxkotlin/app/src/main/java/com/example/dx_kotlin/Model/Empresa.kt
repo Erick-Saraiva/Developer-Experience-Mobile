@@ -4,6 +4,7 @@ data class Empresa (
     val idEmpresa:Int,
     val usuario:String,
     val senha:String,
+    val sobreNos:String,
     val dataNascimento: String,
     val nome:String,
     val email:String,
