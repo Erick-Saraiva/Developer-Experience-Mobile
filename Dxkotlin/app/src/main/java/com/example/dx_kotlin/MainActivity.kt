@@ -35,9 +35,6 @@ class MainActivity : AppCompatActivity() {
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
         val txtCadastroEmpresa = findViewById<TextView>(R.id.txt_cadastro_empresa)
 
-        val mensagem = getString(R.string.termo_lgpd)
-        exibirAlerta(mensagem)
-
         txtCadastroEmpresa.setOnClickListener {
             telaCadastroEmpresa()
         }
@@ -62,8 +59,6 @@ class MainActivity : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
         val selectedRadioButtonId = radioGroup.checkedRadioButtonId
 
-        vagaAdapter.putExtra("teste", senha)
-        sharedPref.edit().putString("teste", senha).apply()
         if (selectedRadioButtonId == R.id.radioEmpresa) {
             // Item "Empresa" selecionado
             val callbackEmpresa = object : Callback<Empresa> {
@@ -124,22 +119,9 @@ class MainActivity : AppCompatActivity() {
             tvAutenticacao.text = "Selecione uma opção (Empresa/Usuário)"
         }
     }
-
     fun telaCadastroEmpresa() {
         val telaCadastroEmpresa = Intent(applicationContext, CadastroEmpresa::class.java)
         startActivity(telaCadastroEmpresa)
-    }
-
-
-    fun exibirAlerta(mensagem: String) {
-        val alertDialogBuilder = AlertDialog.Builder(this)
-        alertDialogBuilder.setTitle("Termo de Privacidade para Atividades Específicas\n")
-        alertDialogBuilder.setMessage(mensagem)
-        alertDialogBuilder.setPositiveButton("Ok, entendi") { dialog, _ ->
-            dialog.dismiss()
-        }
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
     }
 
 }

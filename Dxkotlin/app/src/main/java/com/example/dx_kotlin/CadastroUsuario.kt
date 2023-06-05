@@ -1,13 +1,11 @@
 package com.example.dx_kotlin
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dx_kotlin.Model.Usuario
@@ -20,16 +18,25 @@ import java.util.*
 class CadastroUsuario : AppCompatActivity() {
     lateinit var tvAutenticacao: TextView
     lateinit var btnBack: Button
+    lateinit var btnTermos: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_usuario)
         tvAutenticacao = findViewById(R.id.tv_autenticacao)
         btnBack = findViewById(R.id.btn_back)
+        btnTermos = findViewById(R.id.radioTermos)
 
         btnBack.setOnClickListener(View.OnClickListener {
             finish() // chama o método finish() para fechar a Activity
         })
+
+        btnTermos.setOnClickListener{
+            val mensagem = getString(R.string.termo_lgpd)
+            exibirAlerta(mensagem)
+        }
+
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -37,7 +44,6 @@ class CadastroUsuario : AppCompatActivity() {
         val tela2 = Intent(applicationContext, MainActivity::class.java)
         val apiUsuarios = Apis.getApiUsuario()
         var contador = 1
-
 
         val id = contador++
         val usuario = findViewById<EditText>(R.id.et_usuario).text.toString()
@@ -54,6 +60,8 @@ class CadastroUsuario : AppCompatActivity() {
         val complemento = findViewById<EditText>(R.id.et_complemento).text.toString()
         val telefone = findViewById<EditText>(R.id.et_telefone).text.toString()
 
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        val selectedRadioButtonId = radioGroup.checkedRadioButtonId
 
         val user = Usuario(id,
             usuario,
@@ -69,6 +77,9 @@ class CadastroUsuario : AppCompatActivity() {
             cidade,
             complemento,
             telefone)
+
+
+
 
 //        val myPost = Usuario(id = 1,"Vinicius",
 //            "senha123","2002-10-12",
@@ -108,6 +119,17 @@ class CadastroUsuario : AppCompatActivity() {
 
         })
 
+    }
+
+    fun exibirAlerta(mensagem: String) {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Termo de Privacidade para Atividades Específicas\n")
+        alertDialogBuilder.setMessage(mensagem)
+        alertDialogBuilder.setPositiveButton("Ok, entendi") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 
 }

@@ -253,15 +253,37 @@
                     android:layout_marginTop="18dp"
                     />
 
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_login"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:theme="@style/RadioButtonTheme"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/radioTermos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Termos LGPD"
+                        />
+
+
+
+                </RadioGroup>
+
+
                 <Button
                     android:layout_width="370dp"
                     android:layout_height="52dp"
                     android:textSize="16sp"
                     android:text="@string/registrar"
-                    android:layout_below="@id/et_complemento"
+                    android:layout_below="@id/radioGroup"
                     android:id="@+id/btn_Login"
                     android:backgroundTint="#9747FF"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:onClick="cadastrarUsuario"/>
