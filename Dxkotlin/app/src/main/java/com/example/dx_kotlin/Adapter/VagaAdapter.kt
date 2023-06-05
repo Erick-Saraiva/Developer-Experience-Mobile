@@ -2,6 +2,7 @@ package com.example.dx_kotlin.Adapter
 import android.app.AlertDialog
 import com.example.dx_kotlin.R
 import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dx_kotlin.Model.*
 import com.example.dx_kotlin.Utilities.Apis
@@ -49,11 +51,17 @@ class VagaAdapter(
         holder.btnCandidatarse.setOnClickListener {
             if (idUsuario != null) {
                 candidatarse(idVaga, idUsuario, idEmpresa)
+                val color = ContextCompat.getColor(context, R.color.btn_candidatar_desativado)
+                holder.btnCandidatarse.backgroundTintList = ColorStateList.valueOf(color)
+                holder.btnCandidatarse.isEnabled = false
             }
         }
         holder.btnCancelar.setOnClickListener {
             if (usuario != null && senha != null) {
                 desfazer()
+                val color = ContextCompat.getColor(context, R.color.btn_candidatar)
+                holder.btnCandidatarse.backgroundTintList = ColorStateList.valueOf(color)
+                holder.btnCandidatarse.isEnabled = true
             }
         }
     }
@@ -104,24 +112,28 @@ class VagaAdapter(
         val senha = sharedPref?.getString("senha", "sem valor")
         val apiUsuario = Apis.getApiUsuario()
 
-        apiUsuario.desfazerPilha(usuario,senha).enqueue(object : Callback<Any> {
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                if (response.isSuccessful) {
-                    val pilha = response.body()
-                    exibirAlerta("Inscrição cancelada")
-                    println(response.body())
-                    if (pilha != null) {
-                        // Lidar com a resposta bem-sucedida
+        if (usuario != null) {
+            if (senha != null) {
+                apiUsuario.desfazerPilha(usuario,senha).enqueue(object : Callback<Any> {
+                    override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                        if (response.isSuccessful) {
+                            val pilha = response.body()
+                            exibirAlerta("Inscrição cancelada")
+                            println(response.body())
+                            if (pilha != null) {
+                                // Lidar com a resposta bem-sucedida
+                            }
+                        } else {
+                        }
                     }
-                } else {
-                }
-            }
 
-            override fun onFailure(call: Call<Any>, t: Throwable) {
-                Toast.makeText(context, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
-                t.printStackTrace()
+                    override fun onFailure(call: Call<Any>, t: Throwable) {
+                        Toast.makeText(context, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                        t.printStackTrace()
+                    }
+                })
             }
-        })
+        }
     }
 
 

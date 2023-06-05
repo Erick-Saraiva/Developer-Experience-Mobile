@@ -19,6 +19,7 @@
 
     <color name="btn_candidatar">#0BCE83</color>
     <color name="btn_cancelar">#E21818</color>
+    <color name="btn_candidatar_desativado">#818080</color>
 
 
 
