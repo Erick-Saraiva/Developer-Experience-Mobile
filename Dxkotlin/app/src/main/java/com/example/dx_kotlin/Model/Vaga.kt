@@ -1,5 +1,7 @@
 package com.example.dx_kotlin.Model
 
+import java.util.*
+
 data class Vaga(
     val id: Int,
     val descricao: String,

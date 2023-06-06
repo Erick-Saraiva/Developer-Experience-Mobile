@@ -16,6 +16,7 @@ import com.example.dx_kotlin.Utilities.Apis
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.UUID
 
 class BottomSheet: AppCompatActivity() {
     lateinit var btnBack: Button
@@ -29,7 +30,7 @@ class BottomSheet: AppCompatActivity() {
             finish()
         })
     }
-    private var contador = 1
+    private var contador = UUID.randomUUID().variant()
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun cadastrarVaga(view: View) {
