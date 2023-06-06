@@ -53,11 +53,17 @@ class MainActivity : AppCompatActivity() {
         val vagaAdapter = Intent(applicationContext, VagaAdapter::class.java)
         val usuario = findViewById<EditText>(R.id.et_email).text.toString()
         val senha = findViewById<EditText>(R.id.et_senha).text.toString()
+        val sharedPrefUsuario = getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
         val sharedPref = getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
+        val sharedPrefEmpresa = getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
         val apiUsuarios = Apis.getApiUsuario()
         val apiEmpresa = Apis.getApiEmpresa()
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
         val selectedRadioButtonId = radioGroup.checkedRadioButtonId
+
+        if (selectedRadioButtonId == R.id.radioGroup) {
+            tvAutenticacao.text = "Selecione uma opção (Empresa/Usuário)"
+        }
 
         if (selectedRadioButtonId == R.id.radioEmpresa) {
             // Item "Empresa" selecionado
@@ -68,6 +74,11 @@ class MainActivity : AppCompatActivity() {
                             tvAutenticacao.text = "Empresa autenticada!"
                             tela2.putExtra("empresa", usuario)
                             sharedPref.edit().putString("empresa", usuario).apply()
+                            tela2.putExtra("usuario", usuario)
+                            sharedPrefUsuario.edit().putString("cpf", null).apply()
+                            sharedPrefEmpresa.edit().putString("usuario", usuario).apply()
+                            sharedPrefUsuario.edit().putString("usuario", null).apply()
+                            sharedPrefEmpresa.edit().putString("cnpj", response.body()!!.cnpj).apply()
                             startActivity(tela2)
                         } else {
                             tvAutenticacao.text = "Login e/ou senha inválidos"
@@ -78,7 +89,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 override fun onFailure(call: Call<Empresa>, t: Throwable) {
                     tvAutenticacao.text = "Erro na API: ${t.message}"
-                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT)
+                        .show()
                     t.printStackTrace()
                 }
             }
@@ -98,6 +110,10 @@ class MainActivity : AppCompatActivity() {
                             sharedPref.edit().putString("usuario", usuario).apply()
                             vagaAdapter.putExtra("idUsuario", response.body()!!.idUsuario)
                             sharedPref.edit().putInt("idUsuario", response.body()!!.idUsuario).apply()
+                            sharedPrefEmpresa.edit().putString("cnpj", null).apply()
+                            sharedPrefUsuario.edit().putString("usuario", usuario).apply()
+                            sharedPrefEmpresa.edit().putString("usuario", null).apply()
+                            sharedPrefUsuario.edit().putString("cpf", response.body()!!.cpf).apply()
                             startActivity(tela2)
                         } else {
                             tvAutenticacao.text = "Login e/ou senha inválidos"
@@ -109,14 +125,12 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<Usuario>, t: Throwable) {
                     tvAutenticacao.text = "Erro na API: ${t.message}"
-                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Erro na API: ${t.message}", Toast.LENGTH_SHORT)
+                        .show()
                     t.printStackTrace()
                 }
             }
             apiUsuarios.postLogin(usuario, senha).enqueue(callbackUsuario)
-        } else {
-            // Nenhum item selecionado
-            tvAutenticacao.text = "Selecione uma opção (Empresa/Usuário)"
         }
     }
     fun telaCadastroEmpresa() {

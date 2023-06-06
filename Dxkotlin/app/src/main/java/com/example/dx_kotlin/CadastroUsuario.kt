@@ -107,6 +107,7 @@ class CadastroUsuario : AppCompatActivity() {
                         tvAutenticacao.text = "Informações inválidas"
                     }
                 } else {
+                    println(response.body())
                     tvAutenticacao.text = "Informações outro texto"
                 }
             }

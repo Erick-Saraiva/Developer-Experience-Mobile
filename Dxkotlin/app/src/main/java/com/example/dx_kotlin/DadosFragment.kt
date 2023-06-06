@@ -31,68 +31,76 @@ class DadosFragment : Fragment() {
         binding = FragmentDadosBinding.inflate(inflater)
         return binding.root
     }
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val sharedPrefUsuario = activity?.getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
+        val sharedPrefEmpresa = activity?.getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
         val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
+        val usuario = sharedPrefUsuario?.getString("cpf", null)
+        val empresa = sharedPrefEmpresa?.getString("cnpj", null)
+        val nomeUsuario = sharedPrefUsuario?.getString("usuario", null)
+        val nomeUsuarioEmpresa = sharedPrefEmpresa?.getString("usuario", null)
 
-        val usuario = sharedPref?.getString("usuario", null)
+        println(usuario)
+        println(empresa)
+        println(nomeUsuario)
+        println(nomeUsuarioEmpresa)
 
+        if (nomeUsuario != null) {
+            val apiUsuarios = Apis.getApiUsuario();
+            val chamadaGetSessao = apiUsuarios.getUsuarioSession(nomeUsuario)
+            chamadaGetSessao.enqueue(object : retrofit2.Callback<Usuario> {
 
-        val apiUsuarios = Apis.getApiUsuario();
-        val chamadaGetSessao = apiUsuarios.getUsuarioSession(usuario)
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    if (response.isSuccessful) {
+                        val usuarioBody = response.body()
+                        println(usuarioBody)
+                        if (usuarioBody != null) {
 
-
-        chamadaGetSessao.enqueue(object :  retrofit2.Callback<Usuario> {
-
-            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                if (response.isSuccessful) {
-                    val usuarios = response.body()
-                    if (usuarios != null) {
-                        binding.txtNome.text = usuarios.nome
-                        binding.txtCpf.append(usuarios.cpf)
-                        binding.txtOnclickMudarEndereco.text = "${usuarios.rua}, ${usuarios.bairro} - ${usuarios.numero} "
-                        binding.txtMudarTelefo.text = usuarios.telefone
-                        binding.txtNomeAtual.text = usuarios.usuario
+                            binding.txtNome.text = usuarioBody.nome
+                            binding.txtCpf.text = "CPF: "
+                            binding.txtCpf.append(usuarioBody.cpf)
+                            binding.txtOnclickMudarEndereco.text =
+                                "${usuarioBody.rua}, ${usuarioBody.bairro} - ${usuarioBody.numero} "
+                            binding.txtMudarTelefo.text = usuarioBody.telefone
+                            binding.txtNomeAtual.text = usuarioBody.usuario
+                        }
                     }
-                } else {
-
                 }
-            }
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    t.printStackTrace()
+                }
+            })
+        }
+        else if (nomeUsuarioEmpresa != null) {
+            val apiEmpresa = Apis.getApiEmpresa();
+            val chamadaGetSessaoEmpresa = apiEmpresa.getEmpresaSession(nomeUsuarioEmpresa)
 
-            override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+            chamadaGetSessaoEmpresa.enqueue(object : retrofit2.Callback<Empresa> {
 
-        val empresa = sharedPref?.getString("usuario", null)
-        val apiEmpresa = Apis.getApiEmpresa();
-        val chamadaGetSessaoEmpresa = apiEmpresa.getEmpresaSession(empresa)
-        chamadaGetSessaoEmpresa.enqueue(object :  retrofit2.Callback<Empresa> {
-            override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
-                if (response.isSuccessful) {
-                    val empresa = response.body()
-                    if (empresa != null) {
-                        empresa.isEmpresa = true
-                        //var isEmpresa = sharedPref?.edit()?.putBoolean("isEmpresa",true)?.apply()
-                       // var cpnj = sharedPref?.edit()?.putString("cnpj",usuarios.cnpj)?.apply()
-
-//                        binding.txtNome.text = usuarios.nome
-//                        binding.txtCpf.append(usuarios.cpf)
-//                        binding.txtOnclickMudarEndereco.text = "${usuarios.rua}, ${usuarios.bairro} - ${usuarios.numero} "
-//                        binding.txtMudarTelefo.text = usuarios.telefone
-//                        binding.txtNomeAtual.text = usuarios.usuario
+                override fun onResponse(call: Call<Empresa>, response: Response<Empresa>) {
+                    if (response.isSuccessful) {
+                        val empresaBody = response.body()
+                        println(empresaBody)
+                        if (empresaBody != null) {
+                            binding.txtNome.text = empresaBody.nome
+                            binding.txtCpf.text = "CNPJ: "
+                            binding.txtCpf.append(empresaBody.cnpj)
+                            binding.txtOnclickMudarEndereco.text =
+                                "${empresaBody.rua}, ${empresaBody.bairro} - ${empresaBody.numero} "
+                            binding.txtMudarTelefo.text = empresaBody.telefone
+                            binding.txtNomeAtual.text = empresaBody.usuario
+                        }
                     }
-                } else {
-
                 }
-            }
 
-            override fun onFailure(call: Call<Empresa>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+                override fun onFailure(call: Call<Empresa>, t: Throwable) {
+                    t.printStackTrace()
+                }
+            })
 
+        }
     }
 }

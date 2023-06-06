@@ -106,7 +106,26 @@ class VagasFragment : Fragment() {
         binding.btnPubliqueAqui.setOnClickListener {
             versaoActivity()
         }
+        val sharedPrefUsuario = activity?.getSharedPreferences("CONFIGS-USUARIO", Context.MODE_PRIVATE)
+        val sharedPrefEmpresa = activity?.getSharedPreferences("CONFIGS-EMPRESA", Context.MODE_PRIVATE)
+        val sharedPref = activity?.getSharedPreferences("CONFIGS", Context.MODE_PRIVATE)
+        val usuario = sharedPrefUsuario?.getString("cpf",null)
+        val empresa = sharedPrefEmpresa?.getString("cnpj",null)
 
+        println(usuario)
+        println(empresa)
+//
+        if (usuario != null){
+            binding.btnPubliqueAqui.visibility = View.GONE
+        }
+        if (empresa != null) {
+            binding.btnPubliqueAqui.visibility = View.VISIBLE
+        }
+
+        // recuperar a informacao do usuario da shared preferences
+
+       // view.findViewById<Button>(R.id.btn_publicar_vaga).visibility = if (isEmpresa) View.VISIBLE else View.GONE
+        // se ficar estranho com GONE, usar INVISIBLE
     }
 
     private fun configAdapter(view: View) {
