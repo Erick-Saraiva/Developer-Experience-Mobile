@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VagasFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Vagas"
+            android:textSize="34sp"
+            android:padding="18dp"
+            android:id="@+id/tv_Home"
+            android:textColor="@color/black_ground"
+            android:textStyle="italic"
+
+            />
+
+        <Button
+            android:id="@+id/btn_publique_aqui"
+            android:layout_width="156dp"
+            android:layout_height="54dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_button"
+            android:padding="16dp"
+            android:text="Publique aqui"
+            android:textAllCaps="false"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/btn_vagas_selected"
+            android:textSize="16sp"
+            android:onClick="FshowDialog"
+            />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Digite aqui para pesquisar"
+            android:layout_below="@id/tv_Home"
+            android:background="@drawable/rounded_searchview"
+            android:elevation="4dp"
+            />
+
+        <ImageView
+            android:layout_width="234dp"
+            android:layout_height="234dp"
+            android:background="@mipmap/vagas_laptop_img"
+            android:layout_alignBaseline="@id/searchView"
+            android:layout_alignRight="@id/searchView"
+            android:id="@+id/btn_publicar_vaga"
+            ></ImageView>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vagas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_publicar_vaga"
+            android:layout_marginBottom="60dp"
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,16 +22,18 @@
             android:layout_marginTop="16dp"
             ></ImageView>
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Bem vindo(a) a Developer Experience"
+            android:text="@string/welcome_developer"
             android:id="@+id/txt_bem_vindo"
             android:textAlignment="textStart"
             android:textSize="25sp"
             android:layout_toRightOf="@id/img_logo"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+
             ></TextView>
 
         <ImageView
@@ -42,19 +46,44 @@
 
             ></ImageView>
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_login"
+            android:orientation="horizontal"
+            android:layout_marginLeft="54dp"
+            android:theme="@style/RadioButtonTheme"
+            >
+
+            <RadioButton
+                android:id="@+id/radioEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empresa"
+                />
+
+            <RadioButton
+                android:id="@+id/radioUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuário" />
+
+        </RadioGroup>
+
         <EditText
             android:layout_below="@id/img_login"
             android:layout_width="370dp"
             android:layout_height="52dp"
-            android:hint="Email"
+            android:hint="@string/usuario"
             android:textColorHint="@color/black"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_edittext"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/et_email"
             android:layout_marginTop="40dp"
-            android:drawableLeft="@drawable/baseline_email_24"
+            android:drawableLeft="@drawable/icon_user_black"
             android:drawablePadding="8dp"
             android:padding="5dp"
 
@@ -64,7 +93,8 @@
             android:layout_below="@id/et_email"
             android:layout_width="370dp"
             android:layout_height="57dp"
-            android:hint="Senha"
+            android:hint="@string/senha"
+            android:inputType="textPassword"
             android:textSize="16sp"
             android:textColorHint="@color/black"
             android:layout_centerHorizontal="true"
@@ -81,39 +111,58 @@
             android:layout_width="370dp"
             android:layout_height="52dp"
             android:textSize="16sp"
-            android:text="Login"
-            android:onClick="Cadastrar"
+            android:text="@string/login"
+            android:onClick="validarAutenticacao"
             android:layout_below="@id/et_senha"
             android:id="@+id/btn_Login"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             />
 
         <Button
+            android:id="@+id/btn_cadastro"
             android:layout_width="370dp"
             android:layout_height="52dp"
-            android:textSize="16sp"
-            android:text="Cadastre-se"
-            android:onClick="Cadastrar"
             android:layout_below="@id/btn_Login"
-            android:id="@+id/btn_cadastro"
             android:layout_centerHorizontal="true"
             android:backgroundTint="#9747FF"
+            android:onClick="telaCadastroEmpresa"
+            android:text="@string/cadastre_se"
             android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             />
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Login"-->
-        <!--            android:onClick="Cadastrar"-->
-        <!--            />-->
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textSize="35sp"-->
-        <!--            android:id="@+id/tv_resultado"/>-->
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/tv_autenticacao"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/et_senha"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastrar_empresa"
+            android:id="@+id/txt_cadastro_empresa"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/btn_cadastro"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            />
 
     </RelativeLayout>
 

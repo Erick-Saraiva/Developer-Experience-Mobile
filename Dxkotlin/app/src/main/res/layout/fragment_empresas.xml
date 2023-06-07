@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmpresasFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Empresas"
+            android:textSize="34sp"
+            android:padding="18dp"
+            android:id="@+id/tv_Home"
+            android:textColor="@color/black_ground"
+            android:textStyle="italic"
+
+            />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Digite aqui para pesquisar"
+            android:layout_below="@id/tv_Home"
+            android:background="@drawable/rounded_searchview"
+            android:elevation="4dp"
+            android:hint="Buscar"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_empresas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:layout_below="@+id/searchView"
+            />
+
+
+
+    </RelativeLayout>
+</FrameLayout>

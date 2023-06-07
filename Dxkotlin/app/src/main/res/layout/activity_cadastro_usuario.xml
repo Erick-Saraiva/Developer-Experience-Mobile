@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroUsuario">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:background="@drawable/baseline_arrow_back_ios_new_24"
+            android:id="@+id/btn_back"
+            android:layout_alignBaseline="@+id/txt_cadastro"
+            ></Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro "
+            android:textSize="28sp"
+            android:id="@+id/txt_cadastro"
+            android:textColor="@color/black_ground"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            ></TextView>
+
+
+        <ImageView
+            android:layout_width="330dp"
+            android:layout_height="330dp"
+            android:background="@mipmap/img_cadastro"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/txt_cadastro"
+            android:layout_marginTop="20dp"
+            android:id="@+id/img_cadastro"
+            ></ImageView>
+
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_cadastro"
+            android:layout_centerHorizontal="true"
+            android:windowSoftInputMode="adjustResize"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/usuario"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_usuario"
+                    android:layout_marginTop="40dp"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/nome"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_nome"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_email"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_nome"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/cpf"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_cpf"
+                    android:drawablePadding="8dp"
+                    android:inputType="textPostalAddress"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_nome"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/senha"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_senha"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_nome"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/telefone"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_telefone"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_senha"
+                    android:layout_marginTop="18dp"
+                    />
+
+
+                <EditText
+                    android:id="@+id/et_data_nascimento"
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/data_nascimento"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_telefone"
+                    android:layout_marginTop="18dp"
+                    android:inputType="date"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/rua"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_rua"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_data_nascimento"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/cep"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_cep"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_rua"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/bairro"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_bairro"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_rua"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/cidade"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_cidade"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cep"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/numero"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_numero"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <EditText
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:hint="@string/complemento"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
+                    android:id="@+id/et_complemento"
+                    android:drawablePadding="8dp"
+                    android:padding="5dp"
+                    android:layout_below="@id/et_cidade"
+                    android:layout_marginTop="18dp"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_login"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:theme="@style/RadioButtonTheme"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/radioTermos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Termos LGPD"
+                        />
+
+
+
+                </RadioGroup>
+
+
+                <Button
+                    android:layout_width="370dp"
+                    android:layout_height="52dp"
+                    android:textSize="16sp"
+                    android:text="@string/registrar"
+                    android:layout_below="@id/radioGroup"
+                    android:id="@+id/btn_Login"
+                    android:backgroundTint="#9747FF"
+                    android:layout_marginTop="8dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:onClick="cadastrarUsuario"/>
+
+                <TextView
+                    android:id="@+id/tv_autenticacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/img_login"
+                    android:text=""/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
